@@ -24,6 +24,7 @@
           @include('layouts.message')
 
 				<div class="container-fluid">
+            
 					@yield('content')
 				</div>
       </main>
