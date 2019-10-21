@@ -2,13 +2,13 @@
     <div class="sidebar-inner">
       <div class="sidebar-logo">
         <div class="peers ai-c fxw-nw">
-          <div class="peer peer-greed"><a class="sidebar-link td-n" href="index.html">
+          <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{url('/')}}">
               <div class="peers ai-c fxw-nw">
                 <div class="peer">
-                  <div class="logo"><img src="{{asset("images/logo.png")}}" alt=""></div>
+                  <div class="logo"><img class="bdrs-50p w-4r h-3r" src="{{asset("images/logo_black.PNG")}}" alt="Logo"></div>
                 </div>
                 <div class="peer peer-greed">
-                  <h5 class="lh-1 mB-0 logo-text">Company limited</h5>
+                  <h5 class="lh-1 mB-0 logo-text">Alphabet Smart IT</h5>
                 </div>
               </div>
             </a></div>
@@ -22,7 +22,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="fas fa-chess-king" style="font-size: 28px;"></i></span>
             <span class="title">Admin</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="fas fa-chess-queen" style="font-size: 27px;"></i> </span>
             <span class="title">Teacher</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -45,7 +45,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="fas fa-chess-pawn" style="font-size : 33 px;"></i> </span>
             <span class="title">Student</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -57,7 +57,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="fas fa-chess-board" style="font-size: 25px;"></i> </span>
             <span class="title">Class</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -72,7 +72,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="far fa-check-square" style="font-size: 30px;"></i> </span>
             <span class="title">Attendance</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -82,7 +82,7 @@
 
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="javascript:void(0);">
-            <span class="icon-holder"><i class="c-teal-500 ti-view-list-alt"></i> </span>
+            <span class="icon-holder"><i class="far fa-file-alt" style="font-size: 30px"></i> </span>
             <span class="title">Mark</span> <span class="arrow"><i class="ti-angle-right"></i></span>
           </a>
           <ul class="dropdown-menu">
@@ -92,7 +92,7 @@
         </li>
 
         <li class="nav-item dropdown"><a class="sidebar-link" href="{{url('result')}}">
-          <span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span>
+          <span class="icon-holder"><i class="fas fa-chart-pie" style="font-size:30px"></i> </span>
           <span class="title">Result</span></a>
         </li>
         {{-- single --}}

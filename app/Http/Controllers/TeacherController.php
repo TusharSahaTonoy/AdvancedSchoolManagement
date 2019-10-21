@@ -36,13 +36,20 @@ class TeacherController extends Controller
         // return $r;
         request()->validate([
             'user_id' => 'required|string',
-            'name' => 'required|string|max:190'
+            'name' => 'required|string|max:190',
+            'join_date' => 'required|date',
+            'phone'=> 'required|regex:/(01)[0-9]{9}/',
         ]);
         
-        // if(User::where('user_id','T-'+$r->user_id)->count() != 0)
-        // {
-        //     return $r;
-        // }
+        if(User::where('user_id','T-'.$r->user_id)->count() != 0)
+        {
+            return redirect()->back()->with('error','User id: '.$r->user_id.' is already taken')->withInput();
+        }
+
+        $ext = $r->file('teacher_image')->getClientOriginalExtension();
+        $teacher_img = 't'.time().'.'.$ext;
+
+
 
         $user = User::create([
             'user_id' => 'T-' . $r->user_id,
@@ -57,11 +64,12 @@ class TeacherController extends Controller
             'name' => $user->user_name,
             'subject' => $r->subject,
             'phone' => $r->phone,
-            'image'=> 'image',
+            'image'=> $teacher_img,
             'join_date' =>$r->join_date,
             'user_id' => $user->user_id
         ]);
+        $r->file('teacher_image')->storeAs('public/teacher',$teacher_img);
 
-        return redirect('/');
+        return redirect('/teacher/list')->with('success','Teacher Added');
     }
 }

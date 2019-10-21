@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2019 at 05:55 PM
+-- Generation Time: Oct 20, 2019 at 04:28 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -45,26 +45,10 @@ CREATE TABLE `attendances` (
 --
 
 INSERT INTO `attendances` (`id`, `class`, `section`, `status`, `student_id`, `teacher_id`, `date`, `created_at`, `updated_at`) VALUES
-(1, '1', 'a', '0', '1910000', 'admin', '2019-10-23', '2019-10-14 03:29:35', '2019-10-14 03:29:35'),
-(2, '1', 'a', '1', '1920000', 'admin', '2019-10-23', '2019-10-14 03:29:35', '2019-10-14 03:29:35'),
-(3, '1', 'a', '0', '1910000', 'T-111', '2019-10-15', '2019-10-14 04:54:35', '2019-10-14 04:54:35'),
-(4, '1', 'a', '1', '1920000', 'T-111', '2019-10-15', '2019-10-14 04:54:35', '2019-10-14 04:54:35'),
-(5, '2', 'a', '1', '1950000', 'T-1231', '2019-10-08', '2019-10-14 04:58:22', '2019-10-14 04:58:22'),
-(6, '2', 'a', '0', '1960000', 'T-1231', '2019-10-08', '2019-10-14 04:58:22', '2019-10-14 04:58:22'),
-(7, '2', 'a', '0', '1950000', 'T-1231', '2019-10-14', '2019-10-14 05:00:42', '2019-10-14 05:00:42'),
-(8, '2', 'a', '0', '1960000', 'T-1231', '2019-10-14', '2019-10-14 05:00:42', '2019-10-14 05:00:42'),
-(9, '1', 'b', '1', '1930000', 'T-1231', '2019-10-21', '2019-10-14 05:06:33', '2019-10-14 05:06:33'),
-(10, '1', 'b', '1', '1990000', 'T-1231', '2019-10-21', '2019-10-14 05:06:33', '2019-10-14 05:06:33'),
-(11, '1', 'a', '1', '1910000', 'T-111', '2019-10-14', '2019-10-14 07:37:44', '2019-10-14 07:37:44'),
-(12, '1', 'a', '1', '1920000', 'T-111', '2019-10-14', '2019-10-14 07:37:44', '2019-10-14 07:37:44'),
-(13, '1', 'a', '1', '1910000', 'T-111', '2019-10-24', '2019-10-14 07:37:58', '2019-10-14 07:37:58'),
-(14, '1', 'a', '1', '1920000', 'T-111', '2019-10-24', '2019-10-14 07:37:58', '2019-10-14 07:37:58'),
-(15, '1', 'a', '1', '1910000', 'T-111', '2019-10-22', '2019-10-14 07:47:03', '2019-10-14 07:47:03'),
-(16, '1', 'a', '1', '1920000', 'T-111', '2019-10-22', '2019-10-14 07:47:03', '2019-10-14 07:47:03'),
-(17, '1', 'a', '1', '1910000', 'T-111', '2019-10-31', '2019-10-14 07:47:42', '2019-10-14 07:47:42'),
-(18, '1', 'a', '1', '1920000', 'T-111', '2019-10-31', '2019-10-14 07:47:42', '2019-10-14 07:47:42'),
-(19, '1', 'a', '1', '1910000', 'admin', '2019-10-15', '2019-10-15 06:51:47', '2019-10-15 06:51:47'),
-(20, '1', 'a', '0', '1920000', 'admin', '2019-10-15', '2019-10-15 06:51:47', '2019-10-15 06:51:47');
+(21, '1', 'a', '1', '1900001', 'admin', '2019-10-23', '2019-10-19 09:14:28', '2019-10-19 09:14:28'),
+(22, '1', 'a', '1', '1900003', 'admin', '2019-10-23', '2019-10-19 09:14:28', '2019-10-19 09:14:28'),
+(23, '1', 'a', '1', '1900004', 'admin', '2019-10-23', '2019-10-19 09:14:28', '2019-10-19 09:14:28'),
+(24, '1', 'b', '1', '1900005', 'admin', '2019-10-15', '2019-10-19 09:15:52', '2019-10-19 09:15:52');
 
 -- --------------------------------------------------------
 
@@ -117,7 +101,8 @@ INSERT INTO `class_subjects` (`id`, `subject_id`, `subject_name`, `subject_mark`
 (2, 'eng-01', 'English', 100, '1', '2019-10-14 02:03:00', '2019-10-14 02:03:00'),
 (3, 'ban-02', 'Bangla', 100, '2', '2019-10-14 02:03:22', '2019-10-14 02:03:22'),
 (4, 'mat-02', 'Math', 100, '2', '2019-10-14 02:03:37', '2019-10-14 02:03:37'),
-(5, 'soc-05', 'Social Science', 100, '5', '2019-10-15 06:36:51', '2019-10-15 06:36:51');
+(5, 'soc-05', 'Social Science', 100, '5', '2019-10-15 06:36:51', '2019-10-15 06:36:51'),
+(6, 'mat-01', 'Math', 100, '1', '2019-10-19 11:20:17', '2019-10-19 11:20:17');
 
 -- --------------------------------------------------------
 
@@ -219,15 +204,15 @@ CREATE TABLE `parents` (
 --
 
 INSERT INTO `parents` (`id`, `father_name`, `father_occu`, `father_mobile`, `father_image`, `mother_name`, `mother_occu`, `mother_mobile`, `mother_image`, `user_id`, `student_id`, `created_at`, `updated_at`) VALUES
-(2, 'Dennis L. Moore', 'Business', '01201258', 'image', 'Ramola', 'H Wife', '01202302365', 'image', 'p-1910000', '1910000', '2019-10-14 01:34:29', '2019-10-14 01:34:29'),
-(3, 'Umayr Aziz Mikhail', 'Business', '01201258', 'image', 'Sulafah Atiya Assaf', 'H Wife', '01202302365', 'image', 'p-1920000', '1920000', '2019-10-14 01:37:14', '2019-10-14 01:37:14'),
-(4, 'Atyaf Fawzah', 'Business', '01201258', 'image', 'Mbaeefa', 'H Wife', '01202302365', 'image', 'p-1930000', '1930000', '2019-10-14 01:40:27', '2019-10-14 01:40:27'),
-(5, 'Fomals', 'Business', '01201258', 'image', 'Ramola', 'H Wife', '01202302365', 'image', 'p-1940000', '1940000', '2019-10-14 01:42:40', '2019-10-14 01:42:40'),
-(6, 'Hamish', 'Business', '01201258', 'image', 'Aalisa', 'H Wife', '01202302365', 'image', 'p-1950000', '1950000', '2019-10-14 01:49:43', '2019-10-14 01:49:43'),
-(7, 'kaslm', 'Business', '01201258', 'image', 'Samantha Moriarty', 'H Wife', '01202302365', 'image', 'p-1960000', '1960000', '2019-10-14 01:51:07', '2019-10-14 01:51:07'),
-(8, 'Liam Hawthorn', 'Business', '01201258', 'image', 'Bethany Scobie', 'H Wife', '01202302365', 'image', 'p-1970000', '1970000', '2019-10-14 01:56:11', '2019-10-14 01:56:11'),
-(9, 'Luca Quirk', 'Business', '01201258', 'image', 'Neighbour', 'H Wife', '01202302365', 'image', 'p-1980000', '1980000', '2019-10-14 01:58:20', '2019-10-14 01:58:20'),
-(10, 'Johann Bauch', 'Business', '01201258', 'image', 'Aalisa', 'H Wife', '01202302365', 'image', 'p-1990000', '1990000', '2019-10-14 05:05:14', '2019-10-14 05:05:14');
+(13, 'Mariah VonRueden', 'Business', '01360657507', 'f1571349158.jpg', 'ya Rodriguez', 'H Wife', '01360657507', 'm1571349158.png', 'p-1900001', '1900001', '2019-10-17 15:52:39', '2019-10-17 15:52:39'),
+(14, 'Prof. Maggie', 'Business', '01360657507', 'f1571349342.jpg', 'Gwendolyn Strosin', 'H Wife', '01360657507', 'm1571349342.jpg', 'p-1900002', '1900002', '2019-10-17 15:55:42', '2019-10-17 15:55:42'),
+(15, 'Nova O\'Reilly', 'Business', '01360657507', 'f1571349535.png', 'VonRuede nMariah', 'H Wife', '01360657507', 'm1571349535.jpg', 'p-1900003', '1900003', '2019-10-17 15:58:56', '2019-10-17 15:58:56'),
+(16, 'Maolamx', 'Business', '01360657507', 'f1571349825.jpg', 'Wilderman DVM', 'H Wife', '01360657507', 'm1571349825.jpg', 'p-1900004', '1900004', '2019-10-17 16:03:46', '2019-10-17 16:03:46'),
+(17, 'Tracy Friesen', 'Business', '01360657507', 'f1571350108.png', 'Blanda V', 'H Wife', '01360657507', 'm1571350108.jpg', 'p-1900005', '1900005', '2019-10-17 16:08:29', '2019-10-17 16:08:29'),
+(18, 'Tracy Friesen', 'Business', '01360657507', 'f1571350687.png', 'Wilderman', 'H Wife', '01360657507', 'm1571350687.png', 'p-1900006', '1900006', '2019-10-17 16:18:08', '2019-10-17 16:18:08'),
+(19, 'Albertha Mraz', 'Business', '01360657507', 'f1571351606.jpg', 'Dina Rogahn', 'H Wife', '01360657507', 'm1571351606.png', 'p-1900007', '1900007', '2019-10-17 16:33:26', '2019-10-17 16:33:26'),
+(20, 'Rico Lemke', 'Business', '01360657507', 'f1571504008.png', 'Gregory Sanford', 'H Wife', '01360657507', 'm1571504008.jpg', 'p-1900008', '1900008', '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
+(21, 'Kane Bruen', 'Business', '01360657507', 'f1571504221.png', 'Shannon Nienow', 'H Wife', '01360657507', 'm1571504221.jpg', 'p-1900009', '1900009', '2019-10-19 10:57:02', '2019-10-19 10:57:02');
 
 -- --------------------------------------------------------
 
@@ -267,15 +252,15 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `gender`, `religion`, `dob`, `admission_date`, `present_address`, `permanent_address`, `image`, `user_id`, `created_at`, `updated_at`) VALUES
-(3, 'Mary C. West', 'Famale', 'Christian', '2010-02-23', '2019-11-21', 'Address1', 'Address2', 'image', '1910000', '2019-10-14 01:34:29', '2019-10-14 01:34:29'),
-(4, 'Sadid Sahl Nassar', 'Male', 'Islam', '2009-09-27', '2019-11-26', 'Address1', 'Address2', 'image', '1920000', '2019-10-14 01:37:14', '2019-10-14 01:37:14'),
-(5, 'Jud Lujayn', 'Famale', 'Islam', '2009-05-26', '2019-10-17', 'Address1', 'Address2', 'image', '1930000', '2019-10-14 01:40:26', '2019-10-14 01:40:26'),
-(6, 'Fahim', 'Male', 'Islam', '2019-11-04', '2019-10-22', 'Address1', 'Address2', 'image', '1940000', '2019-10-14 01:42:39', '2019-10-14 01:42:39'),
-(7, 'Hamish Sommerlad', 'Male', 'Christian', '2019-10-14', '2019-10-22', 'Address1', 'Address2', 'image', '1950000', '2019-10-14 01:49:42', '2019-10-14 01:49:42'),
-(8, 'Gabrielle McLaughlin', 'Famale', 'Christian', '2019-10-06', '2019-10-21', 'Address1', 'Address2', 'image', '1960000', '2019-10-14 01:51:07', '2019-10-14 01:51:07'),
-(9, 'Bailey Tunbridge', 'Male', 'Islam', '2019-10-08', '2019-10-09', 'Address1', 'Address2', 'image', '1970000', '2019-10-14 01:56:11', '2019-10-14 01:56:11'),
-(10, 'Kayla Murnin', 'Male', 'Islam', '2019-10-08', '2019-10-30', 'Address1', 'Address2', 'image', '1980000', '2019-10-14 01:58:20', '2019-10-14 01:58:20'),
-(11, 'Morton Wilderman', 'Male', 'Christian', '2019-10-15', '2019-10-16', 'Address1', 'Address2', 'image', '1990000', '2019-10-14 05:05:14', '2019-10-14 05:05:14');
+(16, 'Maggie Klocko', 'Female', 'Islam', '2019-10-10', '2019-10-22', '983 Koss Spur Laramie,', 'WY 82073', 's1571349158.png', '1900001', '2019-10-17 15:52:39', '2019-10-17 15:52:39'),
+(17, 'Klocko MD', 'Female', 'Hindu', '2019-10-11', '2019-10-27', '983 Koss Spur Laramie, WY 82073', '13372 Francisca Pike Suite 510 Pearce, AZ 85625', 's1571349342.png', '1900002', '2019-10-17 15:55:42', '2019-10-17 15:55:42'),
+(18, 'Maggie Klocko', 'Male', 'Hindu', '2019-10-29', '2019-10-13', '13372 Francisca AZ 85625', 'Pike Suite 510 Pearce,', 's1571349535.png', '1900003', '2019-10-17 15:58:55', '2019-10-17 15:58:55'),
+(19, 'O\'Reilly Cdwa', 'Male', 'Christian', '2019-10-13', '2019-10-31', '6786 Conn Overpass Suite 391 Reading, PA 19609', '86218 Zoe Ports Las Vegas, NV 89103', 's1571349825.jpg', '1900004', '2019-10-17 16:03:45', '2019-10-17 16:03:45'),
+(20, 'Mrs. Lydia', 'Male', 'Buddha', '2019-10-21', '2019-10-27', '6786 Conn Overpass Suite', '391 Reading, PA 19609', 's1571350108.png', '1900005', '2019-10-17 16:08:28', '2019-10-17 16:08:28'),
+(21, 'Friesen Lydia Wilderman DVM', 'Female', 'Christian', '2019-10-06', '2019-10-28', '7529 Yoshiko Club Suite', '191 Buffalo, OH 43722', 's1571350687.png', '1900006', '2019-10-17 16:18:08', '2019-10-17 16:18:08'),
+(22, 'Jordane Torp II', 'Male', 'Hindu', '2019-10-06', '2019-10-22', '6786 Conn Overpass Suite', '391 Reading, PA 19609', 's1571351606.jpg', '1900007', '2019-10-17 16:33:26', '2019-10-17 16:33:26'),
+(23, 'Ashly Davis', 'Female', 'Christian', '2019-10-22', '2019-10-23', '1884 Emmanuelle Forges Suite', '973 Greenbank, WA 98253', 's1571504008.jpg', '1900008', '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
+(24, 'Zakary Wisoky', 'Male', 'Islam', '2019-10-08', '2019-10-30', '9884 Karelle Crest Apt. 198 Toledo, OH 43617', '79578 Rickey Ferry Newtonville, NY 12128', 's1571504221.png', '1900009', '2019-10-19 10:57:02', '2019-10-19 10:57:02');
 
 -- --------------------------------------------------------
 
@@ -300,14 +285,15 @@ CREATE TABLE `student_school_infos` (
 --
 
 INSERT INTO `student_school_infos` (`id`, `class`, `section`, `roll`, `guide_teacher`, `year`, `student_id`, `created_at`, `updated_at`) VALUES
-(1, '1', 'a', '101', 'T-112', '2019', '1910000', '2019-10-14 01:34:29', '2019-10-14 01:34:29'),
-(2, '1', 'a', '102', 'T-112', '2019', '1920000', '2019-10-14 01:37:15', '2019-10-14 01:37:15'),
-(3, '1', 'b', '103', 'T-1231', '2019', '1930000', '2019-10-14 01:40:27', '2019-10-14 01:40:27'),
-(5, '2', 'a', '105', 'T-1231', '2019', '1950000', '2019-10-14 01:49:43', '2019-10-14 01:49:43'),
-(6, '2', 'a', '106', 'T-1231', '2019', '1960000', '2019-10-14 01:51:07', '2019-10-14 01:51:07'),
-(7, '2', 'b', '107', 'T-112', '2019', '1970000', '2019-10-14 01:56:11', '2019-10-14 01:56:11'),
-(8, '2', 'b', '108', 'T-112', '2019', '1980000', '2019-10-14 01:58:21', '2019-10-14 01:58:21'),
-(9, '1', 'b', '109', 'T-112', '2019', '1990000', '2019-10-14 05:05:14', '2019-10-14 05:05:14');
+(12, '1', 'a', '10', 'T-111', '2019', '1900001', '2019-10-17 15:52:39', '2019-10-17 15:52:39'),
+(13, '2', 'b', '112', 'T-112', '2019', '1900002', '2019-10-17 15:55:43', '2019-10-17 15:55:43'),
+(14, '1', 'a', '101', 'T-tusar123', '2019', '1900003', '2019-10-17 15:58:56', '2019-10-17 15:58:56'),
+(15, '1', 'a', '104', 'T-111', '2019', '1900004', '2019-10-17 16:03:46', '2019-10-17 16:03:46'),
+(16, '1', 'b', '104', 'T-tusar123', '2019', '1900005', '2019-10-17 16:08:29', '2019-10-17 16:08:29'),
+(17, '2', 'a', '201', 'T-112', '2019', '1900006', '2019-10-17 16:18:08', '2019-10-17 16:18:08'),
+(18, '2', 'a', '202', 'T-111', '2019', '1900007', '2019-10-17 16:33:27', '2019-10-17 16:33:27'),
+(19, '1', 'b', '105', 'T-121', '2019', '1900008', '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
+(20, '2', 'b', '204', 'T-121', '2019', '1900009', '2019-10-19 10:57:02', '2019-10-19 10:57:02');
 
 -- --------------------------------------------------------
 
@@ -334,16 +320,19 @@ CREATE TABLE `subject_marks` (
 --
 
 INSERT INTO `subject_marks` (`id`, `class`, `subject_id`, `teacher_id`, `student_id`, `quiz1`, `quiz2`, `mid`, `final`, `created_at`, `updated_at`) VALUES
-(1, '1', 'eng-01', 'T-1231', '1910000', 10.00, 14.00, 10.00, 50.00, '2019-10-14 05:30:54', '2019-10-14 06:53:05'),
-(2, '1', 'eng-01', 'T-1231', '1920000', 12.00, 10.00, 42.00, 4.00, '2019-10-14 05:30:54', '2019-10-14 06:53:05'),
-(3, '2', 'mat-02', 'T-1231', '1970000', 15.00, 36.00, 2.50, 2.00, '2019-10-14 06:02:44', '2019-10-14 06:03:23'),
-(4, '2', 'mat-02', 'T-1231', '1980000', 52.00, 1.00, 40.00, 2.00, '2019-10-14 06:02:44', '2019-10-14 06:03:23'),
-(5, '2', 'ban-02', 'T-1231', '1970000', 10.00, 63.00, 0.00, 6.00, '2019-10-14 06:05:46', '2019-10-14 06:08:34'),
-(6, '2', 'ban-02', 'T-1231', '1980000', 53.00, 15.00, 1.00, 3.00, '2019-10-14 06:05:46', '2019-10-14 06:08:34'),
-(7, '1', 'ban-01', 'T-111', '1910000', 10.00, 40.00, 10.00, 10.00, '2019-10-14 07:19:08', '2019-10-15 06:14:00'),
-(8, '1', 'ban-01', 'T-111', '1920000', 10.00, 50.00, 30.00, 2.00, '2019-10-14 07:19:08', '2019-10-15 06:14:00'),
-(9, '1', 'ban-01', 'T-1231', '1910000', 0.00, 0.00, 0.00, 0.00, '2019-10-15 06:26:44', '2019-10-15 06:26:44'),
-(10, '1', 'ban-01', 'T-1231', '1920000', 0.00, 0.00, 0.00, 0.00, '2019-10-15 06:26:44', '2019-10-15 06:26:44');
+(11, '1', 'ban-01', 'T-1231', '1900001', 10.00, 20.00, 10.50, 40.00, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
+(12, '1', 'ban-01', 'T-1231', '1900003', 12.00, 20.00, 30.00, 4.50, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
+(13, '1', 'ban-01', 'T-1231', '1900004', 10.00, 20.00, 45.00, 30.00, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
+(14, '1', 'eng-01', 'T-1231', '1900001', 10.00, 20.00, 50.00, 15.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
+(15, '1', 'eng-01', 'T-1231', '1900003', 15.00, 25.00, 36.00, 10.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
+(16, '1', 'eng-01', 'T-1231', '1900004', 25.00, 10.00, 30.00, 24.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
+(17, '2', 'mat-02', 'T-1231', '1900002', 10.00, 10.00, 20.00, 40.00, '2019-10-19 11:14:07', '2019-10-19 11:14:38'),
+(18, '2', 'mat-02', 'T-1231', '1900009', 20.00, 20.00, 30.00, 10.00, '2019-10-19 11:14:07', '2019-10-19 11:14:38'),
+(19, '2', 'ban-02', 'T-1231', '1900002', 10.00, 32.00, 21.00, 12.00, '2019-10-19 11:15:16', '2019-10-19 11:15:39'),
+(20, '2', 'ban-02', 'T-1231', '1900009', 14.00, 41.00, 24.00, 20.00, '2019-10-19 11:15:16', '2019-10-19 11:15:39'),
+(21, '1', 'mat-01', 'T-111', '1900001', 10.00, 10.00, 20.00, 32.00, '2019-10-19 11:23:11', '2019-10-19 11:26:50'),
+(22, '1', 'mat-01', 'T-111', '1900003', 5.00, 10.00, 20.00, 30.00, '2019-10-19 11:23:11', '2019-10-19 11:26:50'),
+(23, '1', 'mat-01', 'T-111', '1900004', 10.00, 10.00, 21.00, 21.00, '2019-10-19 11:23:12', '2019-10-19 11:26:50');
 
 -- --------------------------------------------------------
 
@@ -375,7 +364,9 @@ INSERT INTO `subject_teachers` (`id`, `class`, `section`, `subject_id`, `teacher
 (7, '2', 'a', 'ban-02', 'T-112', '2019-10-14 05:12:23', '2019-10-14 05:12:23'),
 (8, '2', 'a', 'mat-02', 'T-111', '2019-10-14 05:29:38', '2019-10-14 05:29:51'),
 (9, '1', 'c', 'ban-01', 'T-111', '2019-10-15 06:25:33', '2019-10-15 06:25:33'),
-(10, '5', 'a', 'soc-05', 'T-tusar123', '2019-10-15 06:37:42', '2019-10-15 06:44:40');
+(10, '5', 'a', 'soc-05', 'T-tusar123', '2019-10-15 06:37:42', '2019-10-15 06:44:40'),
+(11, '1', 'c', 'eng-01', 'T-121', '2019-10-19 10:57:41', '2019-10-19 10:57:41'),
+(12, '1', 'a', 'mat-01', 'T-111', '2019-10-19 11:22:02', '2019-10-19 11:22:02');
 
 -- --------------------------------------------------------
 
@@ -400,10 +391,11 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `name`, `subject`, `phone`, `image`, `join_date`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, 'William J. Mattingly', 'Bangla', '734-273-6061', 'image', '2019-10-30', 'T-1231', '2019-10-13 11:32:21', '2019-10-13 11:32:21'),
-(3, 'Shaun D. Hess', 'English', '0123456', 'image', '2019-10-20', 'T-112', '2019-10-13 11:33:25', '2019-10-13 11:33:25'),
-(4, 'Ludwig Blick', 'English', '0123456123123', 'image', '2019-10-29', 'T-111', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
-(5, 'Tushar Saha', 'English', '01630657507', 'image', '2019-10-15', 'T-tusar123', '2019-10-15 06:40:09', '2019-10-15 06:40:09');
+(2, 'William J. Mattingly', 'Bangla', '734-273-6061', 'image.jpg', '2019-10-30', 'T-1231', '2019-10-13 11:32:21', '2019-10-13 11:32:21'),
+(3, 'Shaun D. Hess', 'English', '0123456', 'image.jpg', '2019-10-20', 'T-112', '2019-10-13 11:33:25', '2019-10-13 11:33:25'),
+(4, 'Ludwig Blick', 'English', '0123456123123', 'image.jpg', '2019-10-29', 'T-111', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
+(5, 'Tushar Saha', 'English', '01630657507', 'image.jpg', '2019-10-15', 'T-tusar123', '2019-10-15 06:40:09', '2019-10-15 06:40:09'),
+(6, 'Marianne Rath', 'Bangla', '01360657507', 't1571485824.jpg', '2019-10-23', 'T-121', '2019-10-19 05:50:24', '2019-10-19 05:50:24');
 
 -- --------------------------------------------------------
 
@@ -429,29 +421,30 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `type`, `role`, `added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Tushar Saha', '$2y$10$XVcxbxxZ5mPX1DrAOVEDQ.bbD2kyVoUt7PyqCuUuQJ2gUOmTmZ.WC', 'admin', 'admin', 'admin', 'je2Abei4uhYPvLldZ9gJh3L1rQKXUsGi2Utlucm9wBAzFhrjIMnDEWDspEUI', '2019-10-13 07:18:21', '2019-10-13 07:18:21'),
+(1, 'admin', 'Tushar Saha', '$2y$10$XVcxbxxZ5mPX1DrAOVEDQ.bbD2kyVoUt7PyqCuUuQJ2gUOmTmZ.WC', 'admin', 'admin', 'admin', 'CeQftGOArwW89kUiusqj8ne5yHWnPSc87QvVI57LSHOi6GSOjITF4fbB9KZr', '2019-10-13 07:18:21', '2019-10-13 07:18:21'),
 (5, 'T-1231', 'William J. Mattingly', '$2y$10$aRVvxIuiFFiMM4Xb9gH56.NdshGaG9BrpF7Vav.lz1GJ5BOyr39yK', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-13 11:32:21', '2019-10-13 11:32:21'),
 (6, 'T-112', 'Shaun D. Hess', '$2y$10$TXbdmjoaXtItYDglagRHVug7txF0ts9WW9KaC3gKNyi6SlcqhanuW', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-13 11:33:24', '2019-10-13 11:33:24'),
-(11, '1910000', 'Mary C. West', '$2y$10$eKBybelKElrkY4PQQ5xXzOHaqO0gJr0U2sFBlMG9oEG3jrqwkQ6Gy', 'student', 'none', 'admin', NULL, '2019-10-14 01:34:29', '2019-10-14 01:34:29'),
-(12, 'p-1910000', 'Parents', '$2y$10$wv1SWkegdEnHjj80gll0B.GjWP4.xbXkHQHPeK8n5RV/zjMGRu2Re', 'parents', 'none', 'admin', NULL, '2019-10-14 01:34:29', '2019-10-14 01:34:29'),
-(13, '1920000', 'Sadid Sahl Nassar', '$2y$10$uzA0v/dculhei8lxsSS7yOliRqkL32pY6h/nX3u5MO5ot16pRgvR.', 'student', 'none', 'admin', NULL, '2019-10-14 01:37:14', '2019-10-14 01:37:14'),
-(14, 'p-1920000', 'Parents', '$2y$10$ZIIUMrbW9kuCoJMTOPmWNOjEOo6mzKfgWUM3b88LVc869jSbwQxDi', 'parents', 'none', 'admin', NULL, '2019-10-14 01:37:14', '2019-10-14 01:37:14'),
-(15, '1930000', 'Jud Lujayn', '$2y$10$tWrLuLsamy4Is46hI9H7C.NsaqUi4M5nZkW2eMwDM4woGP9JDwWY2', 'student', 'none', 'admin', NULL, '2019-10-14 01:40:26', '2019-10-14 01:40:26'),
-(16, 'p-1930000', 'Parents', '$2y$10$XMHPSqvcrRc7P1nMKqC2vO1IIaWonexW1nHkqlKWM2BF8hFBGwREu', 'parents', 'none', 'admin', NULL, '2019-10-14 01:40:27', '2019-10-14 01:40:27'),
-(17, '1940000', 'Fahim', '$2y$10$4I2aP/LRIv.uMQ6vpxG5zeSwjuKR6JwSPcTAUT.NKABqWiyJrzw5q', 'student', 'none', 'admin', NULL, '2019-10-14 01:42:39', '2019-10-14 01:42:39'),
-(18, 'p-1940000', 'Parents', '$2y$10$HqANr.171JFs/MTJTzJniu4Ug4QB5NvfqMkvdvCuVD4u3.9odaMre', 'parents', 'none', 'admin', NULL, '2019-10-14 01:42:40', '2019-10-14 01:42:40'),
-(19, '1950000', 'Hamish Sommerlad', '$2y$10$VOlmid8JBozpKZuA/Dd0CO54kwNNCekNzeezp9a5HoUiAnbLuuhGS', 'student', 'none', 'admin', NULL, '2019-10-14 01:49:42', '2019-10-14 01:49:42'),
-(20, 'p-1950000', 'Parents', '$2y$10$/2vLYKASEK0MAJUAdHTJEuJr9KDhMtPtnWZ.22GgaAZlzoM9zRNIm', 'parents', 'none', 'admin', NULL, '2019-10-14 01:49:43', '2019-10-14 01:49:43'),
-(21, '1960000', 'Gabrielle McLaughlin', '$2y$10$oBefbysTsid0D6103yznS.BOpmEYGKXvvxgIzt6WRXVh7VLyWkdFq', 'student', 'none', 'admin', NULL, '2019-10-14 01:51:07', '2019-10-14 01:51:07'),
-(22, 'p-1960000', 'Parents', '$2y$10$aklqEnmJvs99jhZKtPxzuuFZQSLfyc1JYO31HJaaTh588hV7cr.Ai', 'parents', 'none', 'admin', NULL, '2019-10-14 01:51:07', '2019-10-14 01:51:07'),
-(23, '1970000', 'Bailey Tunbridge', '$2y$10$z1cHal2GRuyHKFF.E8d1M.4erurqZ6p68.imef8ac4L39tB1zxopK', 'student', 'none', 'admin', NULL, '2019-10-14 01:56:11', '2019-10-14 01:56:11'),
-(24, 'p-1970000', 'Parents', '$2y$10$iOwkFIlxmza00CVNLYL1s.0sOytMIvmvsmBT25pxHjktUaKMHrxSq', 'parents', 'none', 'admin', NULL, '2019-10-14 01:56:11', '2019-10-14 01:56:11'),
-(25, '1980000', 'Kayla Murnin', '$2y$10$lGZoVvp7usEreMeOADL/NOKYZiRN5Y2MOUWlCh.NP6o1Z4x6WGkTm', 'student', 'none', 'admin', NULL, '2019-10-14 01:58:20', '2019-10-14 01:58:20'),
-(26, 'p-1980000', 'Parents', '$2y$10$bFqHcZvpKytyX1CuWrLRceSBFJZjsejmwQn7iU/SnCUp3.WHYlNN.', 'parents', 'none', 'admin', NULL, '2019-10-14 01:58:20', '2019-10-14 01:58:20'),
-(27, 'T-111', 'Ludwig Blick', '$2y$10$GMsCIPbjvNcseO3tt006k.k2HRIGj3v7hfY3HV4SLmcKsHWEvGGTa', 'teacher', 'subject teacher', 'admin', 'LXD2Coo6oJbp93A3R2zQbzYfQAjsUbZ7KQq8Az3EbzbVIh4exOGwijrffuDO', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
-(28, '1990000', 'Morton Wilderman', '$2y$10$5cxs5uPGj8/RSdwa.rBMw.kgvmomU9ed42ablcFZlE6VTo3.lt.IK', 'student', 'none', 'admin', NULL, '2019-10-14 05:05:14', '2019-10-14 05:05:14'),
-(29, 'p-1990000', 'Parents', '$2y$10$7/Mvn3MRMSNJGa0JJHBlreQ7d.bGoC37ZCreY8dYfejsVU20FaWyK', 'parents', 'none', 'admin', NULL, '2019-10-14 05:05:14', '2019-10-14 05:05:14'),
-(30, 'T-tusar123', 'Tushar Saha', '$2y$10$zsxJ76p8PUQTtOCNUG8EU.lWxQIHQestj/VuRTwxRYMG85tvNzBDa', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-15 06:40:09', '2019-10-15 06:40:09');
+(27, 'T-111', 'Ludwig Blick', '$2y$10$GMsCIPbjvNcseO3tt006k.k2HRIGj3v7hfY3HV4SLmcKsHWEvGGTa', 'teacher', 'subject teacher', 'admin', '4tDpst3S2qXXpjFWbxsuclSQCSll0l523kJsKSPJsVKsIE43xXcpxbtc2tiO', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
+(30, 'T-tusar123', 'Tushar Saha', '$2y$10$zsxJ76p8PUQTtOCNUG8EU.lWxQIHQestj/VuRTwxRYMG85tvNzBDa', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-15 06:40:09', '2019-10-15 06:40:09'),
+(38, '1900001', 'Maggie Klocko', '$2y$10$bAp6slE.06FjzgB/HYqiSOUvKvbdCxMm2yPPOMAT0j1/WYvz4rj72', 'student', 'none', 'admin', NULL, '2019-10-17 15:52:39', '2019-10-17 15:52:39'),
+(39, 'p-1900001', 'Parents', '$2y$10$zIWyOPUvpL5FeK9wraRh1u4XfgtB9N9.8uHutB/FfRiXGmBLO/bN2', 'parents', 'none', 'admin', NULL, '2019-10-17 15:52:39', '2019-10-17 15:52:39'),
+(40, '1900002', 'Klocko MD', '$2y$10$2gRYbg1BPdKQL385RUf.su4OSp6Kce0tcw8/QA1age/yE6XPofVTC', 'student', 'none', 'admin', NULL, '2019-10-17 15:55:42', '2019-10-17 15:55:42'),
+(41, 'p-1900002', 'Parents', '$2y$10$.I.lJ/v0sSHMogNaPtHXeOMGesBiE0m1Wm.mIbUeTIgvry253XWQO', 'parents', 'none', 'admin', NULL, '2019-10-17 15:55:42', '2019-10-17 15:55:42'),
+(42, '1900003', 'Maggie Klocko', '$2y$10$z8TgN9876KN5Vu0iYlQpOuwqSL5RSTfh34w/gJI0JLDh/kzrLkRlS', 'student', 'none', 'admin', NULL, '2019-10-17 15:58:55', '2019-10-17 15:58:55'),
+(43, 'p-1900003', 'Parents', '$2y$10$wNWgAuvRS0ceXgorzKwxQug4GfxSEzQo1bSuOt31aejMBc8Hd4NoO', 'parents', 'none', 'admin', NULL, '2019-10-17 15:58:56', '2019-10-17 15:58:56'),
+(44, '1900004', 'O\'Reilly Cdwa', '$2y$10$BFk0kh0c6mnCnRoGlpon8uuc.4hZR5Seh9F0BWchw28TgdJnYF1Na', 'student', 'none', 'admin', NULL, '2019-10-17 16:03:45', '2019-10-17 16:03:45'),
+(45, 'p-1900004', 'Parents', '$2y$10$17cSywINR3nGsj3dTDd82uhfVGVTn4AUXugG.0hBmdyMbWyzv4GG6', 'parents', 'none', 'admin', NULL, '2019-10-17 16:03:45', '2019-10-17 16:03:45'),
+(46, '1900005', 'Mrs. Lydia', '$2y$10$QIhr3icbPgFKpKX0NadT8unE.a5zBEXp4i2faK.ZFv0lLjrX58cWe', 'student', 'none', 'admin', NULL, '2019-10-17 16:08:28', '2019-10-17 16:08:28'),
+(47, 'p-1900005', 'Parents', '$2y$10$m1bfEUrV.Mkk05ggKsGycubE4XP.VC9y8x6CueoekvUaaEHNv6EbO', 'parents', 'none', 'admin', NULL, '2019-10-17 16:08:29', '2019-10-17 16:08:29'),
+(48, '1900006', 'Friesen Lydia Wilderman DVM', '$2y$10$rgaMXr2DjbE8.oKy6Tkd6OEtsVgkkKeC0NIxhxrvuoiXHojq5qi5.', 'student', 'none', 'admin', NULL, '2019-10-17 16:18:08', '2019-10-17 16:18:08'),
+(49, 'p-1900006', 'Parents', '$2y$10$glhK2N08nI/2vEHVdYI72.bi0kp8GWVKPMnvzYaBdm5yWlVyBKbXa', 'parents', 'none', 'admin', NULL, '2019-10-17 16:18:08', '2019-10-17 16:18:08'),
+(50, '1900007', 'Jordane Torp II', '$2y$10$RbTE8Ltt/mYjctGm0tegieKu3VgUvxo8DlQ87U4zzvtg4tq1bxeU.', 'student', 'none', 'admin', NULL, '2019-10-17 16:33:26', '2019-10-17 16:33:26'),
+(51, 'p-1900007', 'Parents', '$2y$10$ePJvzxzNr1ZyaTFBbZc8IOqMfUKXPPEoyoYuEWz86bPSUemVtjvua', 'parents', 'none', 'admin', NULL, '2019-10-17 16:33:26', '2019-10-17 16:33:26'),
+(52, 'T-121', 'Marianne Rath', '$2y$10$JsJH647r3dRBq207YZUcDeBc3QmBZbkF9au0ItqoGPSYAOalygzD6', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-19 05:50:24', '2019-10-19 05:50:24'),
+(53, '1900008', 'Ashly Davis', '$2y$10$k73tP1tMOZnTI7SWk86HTO7GkDkvOiIua4FSkb2ub2toPG/o1YFbG', 'student', 'none', 'admin', NULL, '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
+(54, 'p-1900008', 'Parents', '$2y$10$M5a3Oduc7xhqRHApnOaYzu9APeEu7GEhAnqw/k2KcxzD5F8wl5OMe', 'parents', 'none', 'admin', NULL, '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
+(55, '1900009', 'Zakary Wisoky', '$2y$10$doP16j2DNi0ZJCWBg1eB8.3i6ZXPTGk23CvWsk.fuinSwf04IMlXS', 'student', 'none', 'admin', NULL, '2019-10-19 10:57:01', '2019-10-19 10:57:01'),
+(56, 'p-1900009', 'Parents', '$2y$10$6S3u4/aGGJ2k5nIpH/SOJ.Pmq53Hm56/0GR7owY1qjbHOaSf5zHBu', 'parents', 'none', 'admin', NULL, '2019-10-19 10:57:02', '2019-10-19 10:57:02');
 
 --
 -- Indexes for dumped tables
@@ -563,7 +556,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `class_sections`
@@ -575,7 +568,7 @@ ALTER TABLE `class_sections`
 -- AUTO_INCREMENT for table `class_subjects`
 --
 ALTER TABLE `class_subjects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `class_teachers`
@@ -599,43 +592,43 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `student_school_infos`
 --
 ALTER TABLE `student_school_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `subject_marks`
 --
 ALTER TABLE `subject_marks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `subject_teachers`
 --
 ALTER TABLE `subject_teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables

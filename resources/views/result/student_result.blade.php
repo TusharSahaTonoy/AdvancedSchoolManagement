@@ -5,6 +5,8 @@
     <div class="col-12">
       <div class="bgc-white bdrs-3 p-20 mB-20 c-grey-900">
         <h3 class="text-center">Your Current Result</h3>
+        <br>
+        <p>Note : If subjet not visible then subject is not evaluated yet.</p>
         <hr>
         <div class="row">
           <label class="col-2">ID : {{$student->student_id}}</label>
@@ -34,9 +36,8 @@
                   <td>{{$mark->mid}}</td>
                   <td>{{$mark->quiz2}}</td>
                   <td>{{$mark->final}}</td>
-                  <td>{{$mark->quiz1+
+                  <td>{{(($mark->quiz1+$mark->quiz2)/2)+
                   $mark->mid+
-                  $mark->quiz2+
                   $mark->final}}</td>
                 </tr>
                 @endforeach

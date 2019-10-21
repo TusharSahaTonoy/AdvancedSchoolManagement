@@ -29,13 +29,13 @@
             @foreach ($stu_marks as $stu_mark)
               <div class="row text-center">
                 <div class="col-4">{{$stu_mark->student->name}} ({{$stu_mark->student->school->roll}})</div>
-                <input class="col-2 form-control-sm" type="number" name="quiz1[{{$stu_mark->student_id}}]" value="{{$stu_mark->quiz1}}" placeholder="Quiz 1" min="0.00" max="100" step="0.01">
+                <input class="col-2 form-control-sm" type="number" name="quiz1[{{$stu_mark->student_id}}]" value="{{$stu_mark->quiz1}}" placeholder="Quiz 1" min="0.00" max="10" step="0.01">
                 
-                <input class="col-2 form-control-sm" type="number" name="mid[{{$stu_mark->student_id}}]" value="{{$stu_mark->mid}}" placeholder="Mid" min="0.00" max="100" step="0.01">
+                <input class="col-2 form-control-sm" type="number" name="mid[{{$stu_mark->student_id}}]" value="{{$stu_mark->mid}}" placeholder="Mid" min="0.00" max="30" step="0.01">
 
-                <input class="col-2 form-control-sm" type="number" name="quiz2[{{$stu_mark->student_id}}]" value="{{$stu_mark->quiz2}}" placeholder="Quiz 2" min="0.00" max="100" step="0.01">
+                <input class="col-2 form-control-sm" type="number" name="quiz2[{{$stu_mark->student_id}}]" value="{{$stu_mark->quiz2}}" placeholder="Quiz 2" min="0.00" max="10" step="0.01">
                 
-                <input class="col-2 form-control-sm" type="number" name="final[{{$stu_mark->student_id}}]" value="{{$stu_mark->final}}" placeholder="Final" min="0.00" max="100" step="0.01">
+                <input class="col-2 form-control-sm" type="number" name="final[{{$stu_mark->student_id}}]" value="{{$stu_mark->final}}" placeholder="Final" min="0.00" max="60" step="0.01">
               </div>  
               <hr>  
               <input type="hidden" name="student_ids[]" value="{{$stu_mark->student_id}}">

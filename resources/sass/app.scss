@@ -45,9 +45,18 @@
   }
 }
 
-@import 'spec/settings/index';
-@import 'spec/tools/index';
-@import "~bootstrap/scss/bootstrap";
-@import 'spec/index';
-@import 'vendor/index';
+// @import 'spec/settings/index';
+// @import 'spec/tools/index';
+// @import "~bootstrap/scss/bootstrap";
+// @import 'spec/index';
+// @import 'vendor/index';
+
+@import 'index';
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+
+
 

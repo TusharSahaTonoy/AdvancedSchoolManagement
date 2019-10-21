@@ -48,7 +48,7 @@ class StudentController extends Controller
     {
         // return $r;
 
-        request()->validate([
+        $validator = \Illuminate\Support\Facades\Validator::make($r->all(), [
             'name' => 'required|string|max:190', 
             'gender' => 'required|string|max:10', 
             'religion' => 'required|string|max:10', 
@@ -74,6 +74,9 @@ class StudentController extends Controller
             'father_image'=> 'required|image|max:5000',
             'mother_image'=> 'required|image|max:5000'
         ]);
+
+        if($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
         
         $ext = $r->file('student_image')->getClientOriginalExtension();
         $student_img = 's'.time().'.'.$ext;

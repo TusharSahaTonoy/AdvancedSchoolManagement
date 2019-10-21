@@ -3,15 +3,13 @@
 @section('content')
 
 	<div class="row justify-content-center">
-			<div class="col-md-8 col-sm-12" style="background-color: wheat; border-radius: 30px;">
+			<div class="col-md-12 col-sm-12" style="background-color: wheat; border-radius: 30px;">
 				<div class="bgc-white bd bdrs-3 p-20 mB-20">
-						
-					<div class="mT-30">
-							<h3 class="c-grey-900">Add Teacher</h3>
-
-						<form action="{{url('teacher/add')}}" method="POST" enctype="multipart/form-data" >
-								@csrf
-
+							<h3 class="c-grey-900 text-center">User Profile</h3>
+							<hr>
+							<br>
+							<h4 class="c-grey-900">User info</h4>
+							<hr>
 							<div class="form-group"><label>Teacher name</label> 
 								<input type="text" name="name" class="form-control" placeholder="Full name" required>
 							</div>
@@ -40,12 +38,8 @@
 							<div class="form-group"><label>Teacher Image</label> 
 								<input type="file" name="teacher_image" class="form-control" accept="image/x-png, image/jpeg" required>
 							</div>
-					
-							<button type="submit" class="btn btn-primary">Register Teacher</button>
-
-						</form>
-					</div>
-			</div>
+		
+				</div>
 		</div>
 	</div>
 

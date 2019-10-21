@@ -19,12 +19,14 @@ Route::get('/home', function () {
 });
 
 
-
+// ------------------------ User ------------------------------//
+//login
 Route::get('login', "Auth\LoginController@showLoginForm")->name('login');
 Route::post('login', "Auth\LoginController@login");
-
-
+//logout
 Route::post('logout', "Auth\LoginController@logout");
+//profile
+Route::get('/profile','UserController@profile');
 
 //-------------------------- admin -----------------------//
 Route::get('admin/add', "AdminController@add_admin_form");
