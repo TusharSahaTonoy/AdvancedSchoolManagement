@@ -16,7 +16,7 @@
                   <th>Class</th>
                   <th>Section</th>
                   <th>Roll</th>
-                  <th>Guide Teacher</th>
+                  {{-- <th>Guide Teacher</th> --}}
                 </tr>
               </thead>
               <tbody>
@@ -27,7 +27,7 @@
                     <td>{{$student->class}}</td>
                     <td>{{$student->section}}</td>
                     <td>{{$student->roll}}</td>
-                    <td>{{$student->teacher->name}} ({{$student->guide_teacher}})</td>
+                    {{-- <td>{{$student->teacher->name}} ({{$student->guide_teacher}})</td> --}}
                   </tr>
                 @endforeach
               </tbody>

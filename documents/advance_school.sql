@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2019 at 04:28 PM
+-- Generation Time: Oct 23, 2019 at 10:05 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -175,7 +175,33 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2019_09_18_050446_create_class_sections_table', 1),
 (11, '2019_09_18_050554_create_subject_marks_table', 1),
 (12, '2019_09_22_071812_create_class_teachers_table', 1),
-(13, '2019_09_22_071854_create_subject_teachers_table', 1);
+(13, '2019_09_22_071854_create_subject_teachers_table', 1),
+(14, '2019_10_22_113557_create_notices_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notices`
+--
+
+CREATE TABLE `notices` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(10) NOT NULL DEFAULT '2',
+  `added_by` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`id`, `title`, `class`, `file`, `status`, `added_by`, `created_at`, `updated_at`) VALUES
+(1, 'Do these things', '1', 's1571752470.docx', 1, 'admin', '2019-10-22 07:54:30', '2019-10-22 07:54:30'),
+(2, 'Do these things', 'everyone', 'n1571754398.pdf', 1, 'admin', '2019-10-22 08:26:38', '2019-10-22 08:26:38');
 
 -- --------------------------------------------------------
 
@@ -273,7 +299,7 @@ CREATE TABLE `student_school_infos` (
   `class` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `section` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `roll` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `guide_teacher` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `guide_teacher` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `year` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `student_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -320,9 +346,9 @@ CREATE TABLE `subject_marks` (
 --
 
 INSERT INTO `subject_marks` (`id`, `class`, `subject_id`, `teacher_id`, `student_id`, `quiz1`, `quiz2`, `mid`, `final`, `created_at`, `updated_at`) VALUES
-(11, '1', 'ban-01', 'T-1231', '1900001', 10.00, 20.00, 10.50, 40.00, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
-(12, '1', 'ban-01', 'T-1231', '1900003', 12.00, 20.00, 30.00, 4.50, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
-(13, '1', 'ban-01', 'T-1231', '1900004', 10.00, 20.00, 45.00, 30.00, '2019-10-19 10:59:19', '2019-10-19 11:00:12'),
+(11, '1', 'ban-01', 'T-1231', '1900001', 10.00, 10.00, 25.00, 45.00, '2019-10-19 10:59:19', '2019-10-21 04:41:44'),
+(12, '1', 'ban-01', 'T-1231', '1900003', 10.00, 10.00, 30.00, 4.50, '2019-10-19 10:59:19', '2019-10-21 04:41:44'),
+(13, '1', 'ban-01', 'T-1231', '1900004', 10.00, 10.00, 15.00, 30.00, '2019-10-19 10:59:19', '2019-10-21 04:41:44'),
 (14, '1', 'eng-01', 'T-1231', '1900001', 10.00, 20.00, 50.00, 15.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
 (15, '1', 'eng-01', 'T-1231', '1900003', 15.00, 25.00, 36.00, 10.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
 (16, '1', 'eng-01', 'T-1231', '1900004', 25.00, 10.00, 30.00, 24.00, '2019-10-19 11:00:31', '2019-10-19 11:13:38'),
@@ -395,7 +421,8 @@ INSERT INTO `teachers` (`id`, `name`, `subject`, `phone`, `image`, `join_date`, 
 (3, 'Shaun D. Hess', 'English', '0123456', 'image.jpg', '2019-10-20', 'T-112', '2019-10-13 11:33:25', '2019-10-13 11:33:25'),
 (4, 'Ludwig Blick', 'English', '0123456123123', 'image.jpg', '2019-10-29', 'T-111', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
 (5, 'Tushar Saha', 'English', '01630657507', 'image.jpg', '2019-10-15', 'T-tusar123', '2019-10-15 06:40:09', '2019-10-15 06:40:09'),
-(6, 'Marianne Rath', 'Bangla', '01360657507', 't1571485824.jpg', '2019-10-23', 'T-121', '2019-10-19 05:50:24', '2019-10-19 05:50:24');
+(6, 'Marianne Rath', 'Bangla', '01360657507', 't1571485824.jpg', '2019-10-23', 'T-121', '2019-10-19 05:50:24', '2019-10-19 05:50:24'),
+(8, 'Fahim', 'Math', '01360657507', 't1571779190.jpg', '2019-10-28', 'T-120', '2019-10-22 15:19:50', '2019-10-22 15:19:50');
 
 -- --------------------------------------------------------
 
@@ -421,8 +448,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `type`, `role`, `added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Tushar Saha', '$2y$10$XVcxbxxZ5mPX1DrAOVEDQ.bbD2kyVoUt7PyqCuUuQJ2gUOmTmZ.WC', 'admin', 'admin', 'admin', 'CeQftGOArwW89kUiusqj8ne5yHWnPSc87QvVI57LSHOi6GSOjITF4fbB9KZr', '2019-10-13 07:18:21', '2019-10-13 07:18:21'),
-(5, 'T-1231', 'William J. Mattingly', '$2y$10$aRVvxIuiFFiMM4Xb9gH56.NdshGaG9BrpF7Vav.lz1GJ5BOyr39yK', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-13 11:32:21', '2019-10-13 11:32:21'),
+(1, 'admin', 'Tushar Saha', '$2y$10$1G8NeJ1do9aDljwlOknD4OJYQf/PgtkLviOJBIbTHOf5YDv84bUTO', 'admin', 'admin', 'admin', 'Z9uY1AinDkfbw0fXMtwTwRE6Bf9C6k0hmysIf3vteDObQdY1jhvxkpvSWcDF', '2019-10-13 07:18:21', '2019-10-21 16:19:43'),
+(5, 'T-1231', 'William J. Mattingly', '$2y$10$XUKUQmZoUE5EHn9zk7B3dOBkqtgjY4S24UEsLwvKCzF/7/Uc1xZOW', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-13 11:32:21', '2019-10-21 16:25:00'),
 (6, 'T-112', 'Shaun D. Hess', '$2y$10$TXbdmjoaXtItYDglagRHVug7txF0ts9WW9KaC3gKNyi6SlcqhanuW', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-13 11:33:24', '2019-10-13 11:33:24'),
 (27, 'T-111', 'Ludwig Blick', '$2y$10$GMsCIPbjvNcseO3tt006k.k2HRIGj3v7hfY3HV4SLmcKsHWEvGGTa', 'teacher', 'subject teacher', 'admin', '4tDpst3S2qXXpjFWbxsuclSQCSll0l523kJsKSPJsVKsIE43xXcpxbtc2tiO', '2019-10-14 03:52:24', '2019-10-14 03:52:24'),
 (30, 'T-tusar123', 'Tushar Saha', '$2y$10$zsxJ76p8PUQTtOCNUG8EU.lWxQIHQestj/VuRTwxRYMG85tvNzBDa', 'teacher', 'subject teacher', 'admin', NULL, '2019-10-15 06:40:09', '2019-10-15 06:40:09'),
@@ -444,7 +471,9 @@ INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `type`, `role`, `
 (53, '1900008', 'Ashly Davis', '$2y$10$k73tP1tMOZnTI7SWk86HTO7GkDkvOiIua4FSkb2ub2toPG/o1YFbG', 'student', 'none', 'admin', NULL, '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
 (54, 'p-1900008', 'Parents', '$2y$10$M5a3Oduc7xhqRHApnOaYzu9APeEu7GEhAnqw/k2KcxzD5F8wl5OMe', 'parents', 'none', 'admin', NULL, '2019-10-19 10:53:28', '2019-10-19 10:53:28'),
 (55, '1900009', 'Zakary Wisoky', '$2y$10$doP16j2DNi0ZJCWBg1eB8.3i6ZXPTGk23CvWsk.fuinSwf04IMlXS', 'student', 'none', 'admin', NULL, '2019-10-19 10:57:01', '2019-10-19 10:57:01'),
-(56, 'p-1900009', 'Parents', '$2y$10$6S3u4/aGGJ2k5nIpH/SOJ.Pmq53Hm56/0GR7owY1qjbHOaSf5zHBu', 'parents', 'none', 'admin', NULL, '2019-10-19 10:57:02', '2019-10-19 10:57:02');
+(56, 'p-1900009', 'Parents', '$2y$10$6S3u4/aGGJ2k5nIpH/SOJ.Pmq53Hm56/0GR7owY1qjbHOaSf5zHBu', 'parents', 'none', 'admin', NULL, '2019-10-19 10:57:02', '2019-10-19 10:57:02'),
+(57, 'T-T-112', 'Miss Yvette Willms Jr.', '$2y$10$HpMZh2ov.BB1cjWYE4c01uITaU4REZIJtaBQlWIuL9i9N9dUSO2Bi', 'teacher', 'principal', 'admin', NULL, '2019-10-22 01:33:28', '2019-10-22 01:33:28'),
+(58, 'T-120', 'Fahim', '$2y$10$dvgkL483Q65lI2DUgU1xWetyrulTgD3VOrBGtjuZQRwsZ/Tk/cfpW', 'teacher', 'principal', 'admin', NULL, '2019-10-22 15:19:50', '2019-10-22 15:19:50');
 
 --
 -- Indexes for dumped tables
@@ -490,6 +519,13 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `notices_added_by_foreign` (`added_by`);
+
+--
 -- Indexes for table `parents`
 --
 ALTER TABLE `parents`
@@ -515,7 +551,6 @@ ALTER TABLE `students`
 --
 ALTER TABLE `student_school_infos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `student_school_infos_guide_teacher_foreign` (`guide_teacher`),
   ADD KEY `student_school_infos_student_id_foreign` (`student_id`);
 
 --
@@ -586,7 +621,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `parents`
@@ -622,13 +663,13 @@ ALTER TABLE `subject_teachers`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Constraints for dumped tables
@@ -647,6 +688,12 @@ ALTER TABLE `class_teachers`
   ADD CONSTRAINT `class_teachers_teacher_id_foreign` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`user_id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `notices`
+--
+ALTER TABLE `notices`
+  ADD CONSTRAINT `notices_added_by_foreign` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `parents`
 --
 ALTER TABLE `parents`
@@ -658,13 +705,6 @@ ALTER TABLE `parents`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `students_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `student_school_infos`
---
-ALTER TABLE `student_school_infos`
-  ADD CONSTRAINT `student_school_infos_guide_teacher_foreign` FOREIGN KEY (`guide_teacher`) REFERENCES `teachers` (`user_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `student_school_infos_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `subject_marks`

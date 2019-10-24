@@ -67,9 +67,9 @@
             data-toggle="dropdown">
             <div class="peer mR-10"><img class="w-2r bdrs-50p" src="{{asset('images/user.png')}}"
                 alt=""></div>
-            <div class="peer"><span class="fsz-sm c-grey-900">{{Auth::user()->type}}</span></div>
+            <div class="peer"><span class="fsz-sm c-grey-900 text-uppercase">{{Auth::user()->type}}</span></div>
           </a>
-          <ul class="dropdown-menu fsz-sm">
+          <ul class="dropdown-menu fsz-md">
             <li><a href="javascript:void(0);" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class=" mR-10"></i>
               <span>{{Auth::user()->user_name}}</span></a>
             </li>
@@ -77,7 +77,7 @@
 
             <li><a href="{{url('/profile')}}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="far fa-user mR-10"></i>
               <span>Profile</span></a></li>
-            <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="fas fa-key mR-10"></i>
+            <li><a id="btn_change_pass" href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="fas fa-key mR-10"></i>
               <span>Change Password</span></a></li>
             {{-- 
             <li><a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i>
@@ -107,3 +107,6 @@
       </ul>
     </div>
   </div>
+
+  {{-- change password --}}
+  @include('user.change_pass')

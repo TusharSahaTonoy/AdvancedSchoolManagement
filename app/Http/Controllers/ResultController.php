@@ -83,7 +83,7 @@ class ResultController extends Controller
             $marks = SubjectMarks::where('student_id', $stu->student_id)->get();
             $temp =[];
             foreach ($marks as $subject) {
-                $temp[] = '('.$subject->quiz1.'+'.$subject->quiz2.'+'.$subject->mid.'+'.$subject->final.')='.($subject->quiz1 + $subject->quiz2 + $subject->mid + $subject->final);
+                $temp[] = '('.$subject->quiz1.'+'.$subject->quiz2.')/2+'.$subject->mid.'+'.$subject->final.'='.(($subject->quiz1 + $subject->quiz2)/2 + $subject->mid + $subject->final);
             }
             $all_marks[] = $temp;
         }

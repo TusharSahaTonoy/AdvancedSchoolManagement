@@ -14,7 +14,7 @@
                 <th>Name</th>
                 <th>Section</th>
                 @foreach ($subjects as $subject)
-                  <th>{{$subject->subject_name}}</th>
+                  <th>{{$subject->subject_name}} </th>
                 @endforeach
                 
               </tr>

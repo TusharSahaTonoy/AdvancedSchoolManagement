@@ -23,10 +23,15 @@ Route::get('/home', function () {
 //login
 Route::get('login', "Auth\LoginController@showLoginForm")->name('login');
 Route::post('login', "Auth\LoginController@login");
+
 //logout
 Route::post('logout', "Auth\LoginController@logout");
+
 //profile
 Route::get('/profile','UserController@profile');
+
+//change password
+Route::post('/change-password','UserController@change_password');
 
 //-------------------------- admin -----------------------//
 Route::get('admin/add', "AdminController@add_admin_form");
@@ -44,6 +49,9 @@ Route::get('teacher/list','TeacherController@teacher_list');
 
 Route::get('teacher/add', "TeacherController@add_teacher_form");
 Route::post('teacher/add', "TeacherController@add_teacher");
+
+//delete
+Route::post('teacher/delete','TeacherController@delete_teacher');
 
 /* ------------------------ student ----------------------- */
 Route::get('student/all','StudentController@all_students');
@@ -93,3 +101,9 @@ Route::get('result','ResultController@result');
 Route::get('result/class/{class}','ResultController@class_result');
 
 Route::get('result/student','ResultController@student_result');
+
+// ---------------------- Notice ---------------------- //
+Route::get('notice/all','NoticeController@all_notice');
+
+Route::get('notice/add','NoticeController@add_notice_form');
+Route::post('notice/add','NoticeController@add_notice');

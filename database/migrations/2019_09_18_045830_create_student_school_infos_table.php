@@ -18,12 +18,11 @@ class CreateStudentSchoolInfosTable extends Migration
             $table->string('class');
             $table->string('section');
             $table->string('roll');
-            $table->string('guide_teacher');
+            $table->string('guide_teacher')->nullable();
             $table->string('year');
             $table->string('student_id');
             $table->timestamps();
 
-            $table->foreign('guide_teacher')->references('user_id')->on('teachers')->onDelete('cascade');
             $table->foreign('student_id')->references('user_id')->on('students')->onDelete('cascade');
         });
     }

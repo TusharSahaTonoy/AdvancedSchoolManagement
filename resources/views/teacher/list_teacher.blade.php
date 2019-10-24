@@ -19,6 +19,7 @@
                   <th>Join Date</th>
                   <th>Role</th>
                   <th>Added By</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,6 +35,8 @@
                     <td>{{$teacher->join_date}}</td>
                     <td class="text-capitalize">{{$teacher->user->role}}</td>
                     <td class="text-capitalize">{{$teacher->user->added_by}}</td>
+                    <td><a href="{{$teacher->user_id}}" class="btn_edit btn btn-warning">Edit</a>
+                      <button name="{{$teacher->user_id}}" class="btn btn-danger">Delete</button></td>
                   </tr>    
                 @endforeach
                 
@@ -44,4 +47,40 @@
       </div>
     </div>
   </div>
+
+  <script>
+  
+  window.addEventListener('load',function load(){
+    $(".btn_delete").click(function(){
+      alert('Deleting....');
+      var row = $(this).closest('tr');
+      var user_id = $(this).attr('name');
+        (async function () {
+          var response = await axios.post("{{url('teacher/delete')}}", {
+          teacher_id : user_id,
+          completed: true
+          });
+          // alert(response.data);
+          if(response.data)
+          {
+            alert('Teacher Deleted.');
+            row.remove(); 
+          }
+          else if(!response.data)
+          {
+            alert('Teacher have records inserted. Can not be deleted now.');
+          }
+          else
+          {
+            alert('Something Wrong');
+            console.log(response.data);
+          }
+
+        })()
+      
+    });
+
+  });
+
+  </script>
 @endsection

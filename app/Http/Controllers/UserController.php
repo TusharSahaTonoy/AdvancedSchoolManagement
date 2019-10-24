@@ -23,8 +23,11 @@ class UserController extends Controller
         return view('user.profile',compact('user'));
     }
 
-    public function change_password()
+    public function change_password(Request $r)
     {
-        # code...
+        $user = User::where('user_id',auth()->user()->user_id)->first();
+        $user->password = \Illuminate\Support\Facades\Hash::make($r->password);
+        $user->save();
+        return "success";
     }
 }

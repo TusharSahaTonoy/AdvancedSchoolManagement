@@ -17,7 +17,7 @@ class StudentController extends Controller
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if($request->user()->type == 'admin') {
+            if(in_array($request->user()->role ,['admin','principal'])) {
                 return $next($request);
             } else {
                 return redirect('/')->with('error','You do not have that privilege');
@@ -33,6 +33,11 @@ class StudentController extends Controller
     }
     public function add_student_form()
     {
+        if(auth()->user()->role!='admin')
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
+
         $has_section = ClassSection::first();
         $has_teacher = Teacher::first();
 
@@ -47,6 +52,10 @@ class StudentController extends Controller
     public function add_student(Request $r)
     {
         // return $r;
+        if(auth()->user()->role!='admin')
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
 
         $validator = \Illuminate\Support\Facades\Validator::make($r->all(), [
             'name' => 'required|string|max:190', 

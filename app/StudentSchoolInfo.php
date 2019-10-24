@@ -17,8 +17,8 @@ class StudentSchoolInfo extends Model
         return $this->belongsTo('App\Student', 'student_id', 'user_id');
     }
 
-    public function teacher()
-    {
-        return $this->belongsTo('App\Teacher', 'guide_teacher','user_id');
-    }
+    // public function teacher()
+    // {
+    //     return $this->belongsTo('App\Teacher', 'guide_teacher','user_id');
+    // }
 }

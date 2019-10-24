@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<h3 class="c-grey-900 mT-10 mB-30 text-center">Home</h3>
+<h3 class="c-grey-900 mT-10 mB-30 text-center">School Name</h3>
 <hr>
 <div class="row">
 	<div class="col-md-12">
