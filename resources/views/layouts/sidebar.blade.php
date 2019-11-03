@@ -5,7 +5,7 @@
           <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{url('/')}}">
               <div class="peers ai-c fxw-nw">
                 <div class="peer">
-                  <div class="logo"><img class="bdrs-50p w-4r h-3r" src="{{asset("images/logo_black.PNG")}}" alt="Logo"></div>
+                  <div class="logo"><img class="bdrs-50p w-4r h-3r" src="{{asset("images/logo_black.png")}}" alt="Logo"></div>
                 </div>
                 <div class="peer peer-greed">
                   <h5 class="lh-1 mB-0 logo-text">Alphabet Smart IT</h5>
@@ -28,7 +28,13 @@
           @elseif(Auth::user()->type == 'student'|| Auth::user()->type == 'parents')
             @include('student.sidebar_student')
           @endif
+        @else
+        
         @endauth
+        <li class="nav-item dropdown"><a class="sidebar-link" href="{{url('notice-board')}}">
+          <span class="icon-holder"><i class="far fa-clipboard" style="font-size: 28px;"></i> </span>
+          <span class="title">Notice</span></a>
+        </li>
         
         
 

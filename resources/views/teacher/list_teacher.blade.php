@@ -35,7 +35,7 @@
                     <td>{{$teacher->join_date}}</td>
                     <td class="text-capitalize">{{$teacher->user->role}}</td>
                     <td class="text-capitalize">{{$teacher->user->added_by}}</td>
-                    <td><a href="{{$teacher->user_id}}" class="btn_edit btn btn-warning">Edit</a>
+                    <td><a href="{{url('teacher/edit/'.$teacher->user_id)}}" class="btn_edit btn btn-warning">Edit</a>
                       <button name="{{$teacher->user_id}}" class="btn btn-danger">Delete</button></td>
                   </tr>    
                 @endforeach

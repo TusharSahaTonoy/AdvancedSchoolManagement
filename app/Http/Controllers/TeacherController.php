@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 
 use App\User;
 use App\Teacher;
@@ -51,6 +52,7 @@ class TeacherController extends Controller
             'name' => 'required|string|max:190',
             'join_date' => 'required|date',
             'phone'=> 'required|regex:/(01)[0-9]{9}/',
+            'teacher_image'=> 'required|image|max:5000',
         ]);
         
         if(User::where('user_id','T-'.$r->user_id)->count() != 0)
@@ -93,14 +95,55 @@ class TeacherController extends Controller
 
     //edit teacher 
     public function edit_teacher_form($id)
-    {
+    {   
+        if(!is_admin_principal() && auth()->user()->user_id != $id)
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
 
+        $teacher = Teacher::where('user_id',$id)->first();
 
+        if(!isset($teacher))
+        {
+            return redirect('/')->with('error','Teacher not found');
+        }
+        
+        Session::put('user_id', $id);
+
+        if(is_admin_principal())
+        {
+            return view('teacher.edit_teacher_admin',compact('teacher'));
+        }
+
+        return view('teacher.edit_teacher',compact('teacher'));
     }
 
     public function edit_teacher(Request $r)
     {
+        return $r;
+        if(is_admin_principal)
+        {
+            return auth()->user()->role;
+            $user = User::where('user_id',Session::get('user_id'))->first();
+            $user->role = $r->role;
+            $user->save();
+        }
+        if(is_teacher)
+        {
+            return auth()->user()->type;
+            request()->validate([
+                'name' => 'required|string|max:190',
+                'join_date' => 'required|date',
+                'phone'=> 'required|regex:/(01)[0-9]{9}/',
+            ]);
+            
+            $user = User::where('user_id',Session::get('user_id'))->first();
+            $user->name = $r->name;
+            $user->phone = $r->phone;
 
+        }
+
+        return $teacher;
     }
     
 
@@ -122,8 +165,6 @@ class TeacherController extends Controller
         {
             return '0';
         }
-        
-        
 
         $guide_teachers = StudentSchoolInfo::where('guide_teacher',$r->teacher_id)->get();
         if(isset($guide_teachers))

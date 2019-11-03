@@ -5,7 +5,7 @@
 	<div class="row justify-content-center">
 			<div class="col-md-12 col-sm-12" style="background-color: #00bcd4; border-radius: 30px;">
 				<div class="bgc-white bd bdrs-3 p-20 mB-20">
-							<h3 class="c-grey-900 text-center">User Profile</h3>
+							<h3 class="c-grey-900 text-center">User Profile  &nbsp; <a href="{{url(Auth::user()->type.'/edit')}}" class="btn btn-info">Edit Profile</a></h3>
 							<hr>
 							<br>
 							<div class="row justify-content-center">
@@ -21,13 +21,20 @@
 											<li class="list-group-item">Type : {{Auth::user()->type}}</li>
 											<li class="list-group-item">Role : {{Auth::user()->role}}</li>
 										</ul>
+										<br>
+										
 									</div>
 								</div>
 								
 							</div>
-							<div class="row">
+							
+							@if (Auth::user()->type == "admin")
+							
+							@elseif(Auth::user()->type == "teacher")
 
-							</div>
+							@elseif(Auth::user()->type == "student")
+								@include('student.profile_student')
+							@endif
 							
 				</div>
 		</div>

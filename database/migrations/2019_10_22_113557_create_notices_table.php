@@ -18,7 +18,7 @@ class CreateNoticesTable extends Migration
             $table->string('title');
             $table->string('class')->nullable();
             $table->string('file');
-            $table->integer('status',10)->default('2');
+            $table->integer('status')->default('2');
             $table->string('added_by');
             $table->timestamps();
 

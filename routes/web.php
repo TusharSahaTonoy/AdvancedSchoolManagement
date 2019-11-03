@@ -43,21 +43,43 @@ Route::get('admin/all','AdminController@admin_list');
 // all user
 Route::get('user/all','AdminController@user_list');
 
+
+
 /* ------------------------ Teacher ------------------ */
 
 Route::get('teacher/list','TeacherController@teacher_list');
 
+//add
 Route::get('teacher/add', "TeacherController@add_teacher_form");
 Route::post('teacher/add', "TeacherController@add_teacher");
 
+//edit
+Route::get('teacher/edit/{id}','TeacherController@edit_teacher_form');
+Route::post('teacher/edit','TeacherController@edit_teacher');
+
 //delete
 Route::post('teacher/delete','TeacherController@delete_teacher');
+
+
 
 /* ------------------------ student ----------------------- */
 Route::get('student/all','StudentController@all_students');
 
 Route::get('student/add', 'StudentController@add_student_form');
 Route::post('student/add', 'StudentController@add_student');
+
+//view student
+Route::get('student/view/{id}','StudentController@view_student');
+
+//edit student
+Route::get('student/edit','StudentController@edit_student_form');
+Route::post('student/edit','StudentController@edit_student');
+
+//delete
+// Route::get('student/details/{id}','StudentController@detail_student');
+
+
+
 
 /* ------------------------ Class ------------------------ */
 // all classes
@@ -82,10 +104,16 @@ Route::post('class-teachers/assign-class-teacher','ClassController@assign_class_
 Route::get('class/assign-subject-teacher','ClassController@assign_subject_teacher_form');
 Route::post('class/assign-subject-teacher','ClassController@assign_subject_teacher');
 
+
+
+
 /* ----------------------- attendance -------------------- */
 Route::get('attendance','AttendanceController@all_attendance_classes');
 Route::get('attendance/{section}','AttendanceController@take_attendance_form');
 Route::post('attendance/store', 'AttendanceController@store_attendence');
+
+
+
 
 /* ------------------------ Mark ----------------- */
 Route::get('mark/mark-report','MarkController@student_mark_report');
@@ -93,6 +121,9 @@ Route::get('mark/mark-report','MarkController@student_mark_report');
 Route::get('mark/all-subjects','MarkController@all_subjects');
 Route::get('mark/{subject}/student-list','MarkController@student_list');
 Route::post('mark/store','MarkController@store_marks');
+
+
+
 
 /* ----------------------- Result ------------------ */
 Route::get('result','ResultController@result');
@@ -102,8 +133,17 @@ Route::get('result/class/{class}','ResultController@class_result');
 
 Route::get('result/student','ResultController@student_result');
 
+
+
+
 // ---------------------- Notice ---------------------- //
+Route::get('notice-board', function () {
+    return view('notice.notice_public');
+});
 Route::get('notice/all','NoticeController@all_notice');
+
 
 Route::get('notice/add','NoticeController@add_notice_form');
 Route::post('notice/add','NoticeController@add_notice');
+
+Route::post('notice/change-status','NoticeController@change_status_notice');

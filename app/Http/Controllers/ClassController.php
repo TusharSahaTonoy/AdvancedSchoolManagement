@@ -114,6 +114,9 @@ class ClassController extends Controller
     public function add_class_subject(Request $r)
     {
         // return $r;
+        request()->validate([
+            'class' => 'required',
+        ]);
 
         $section = ClassSection::where('class',$r->class)->first();
 
@@ -157,6 +160,13 @@ class ClassController extends Controller
     {
         // return $r;
         // return view('teacher.assign_subject_teacher');
+
+        request()->validate([
+            'class' => 'required',
+            'section' => 'required',
+            'subject_id' => 'required',
+            'teacher_id' => 'required',
+        ]);
 
         SubjectTeacher::updateOrCreate([
             "class" => $r->class,

@@ -16,15 +16,13 @@ class StudentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if(in_array($request->user()->role ,['admin','principal'])) {
-                return $next($request);
-            } else {
-                return redirect('/')->with('error','You do not have that privilege');
-            }
-        });
-
-
+        // $this->middleware(function ($request, $next) {
+        //     if(in_array($request->user()->role ,['admin','principal'])) {
+        //         return $next($request);
+        //     } else {
+        //         return redirect('/')->with('error','You do not have that privilege');
+        //     }
+        // });
     }
 
     public function all_students()
@@ -157,7 +155,76 @@ class StudentController extends Controller
             'student_id' => $student->user_id
         ]);
 
-
         return redirect('/student/all')->with('success','Student Added Successfully');
+    }
+
+    public function view_student($id)
+    {
+        // return 'STudent id: '.$id;
+
+        if(!is_admin_principal() && auth()->user()->user_id!=$id)
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
+
+        $student = Student::where('user_id',$id)->first();
+
+        return view('student.view_student',compact('student'));
+    }
+
+    public function edit_student_form()
+    {
+        if(!is_student())
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
+
+        $student = Student::where('user_id',auth()->user()->user_id)->first();
+        return view('student.edit_student',compact('student'));
+    }
+    public function edit_student(Request $r)
+    {
+        if(!is_student())
+        {
+            return redirect('/')->with('error','You do not have that privilege');
+        }
+
+        request()->validate([
+            'name' => 'required|string|max:190', 
+            'gender' => 'required|string|max:10', 
+            'religion' => 'required|string|max:10', 
+            'dob' => 'required|date', 
+            'present_address' => 'required|string|max:190', 
+            'permanent_address' => 'required|string|max:190', 
+
+            'father_name' => 'required|string|max:190', 
+            'father_occu' => 'required|string|max:190',
+            'mother_name' => 'required|string|max:190', 
+            'mother_occu' => 'required|string|max:190',
+        ]);
+        
+        User::where('user_id',auth()->user()->user_id)->first()->update([
+            'user_name' => $r->name,
+        ]);
+
+        Student::where('user_id',auth()->user()->user_id)->first()->update([
+            'name' => $r->name,
+            'gender' => $r->gender,
+            'religion' => $r->religion,
+            'dob' => $r->dob,
+            'present_address' => $r->present_address,
+            'permanent_address' => $r->permanent_address,
+        ]);
+
+        Parents::where('user_id','p-'.auth()->user()->user_id)->first()->update([
+            'father_name' => $r->father_name, 
+            'father_occu' => $r->father_occu,  
+
+            'mother_name' => $r->mother_name, 
+            'mother_occu' => $r->mother_occu, 
+        ]);
+
+
+        return redirect()->back()->with('success','Infomation Upadated');
     }
 }

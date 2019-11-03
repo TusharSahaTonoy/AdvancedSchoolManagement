@@ -8,29 +8,23 @@ function admin_check()
   }
 }
 
+// $is_admin_principal_var = (in_array(auth()->user()->role,['admin','principal'])) ? 1 : 0; 
 function is_admin_principal()
 {
-  if(in_array(auth()->user()->role,['admin','principal']))
-  {
-    return 1;
-  }
-  return 0;
+  return (in_array(auth()->user()->role,['admin','principal'])) ? 1 : 0;
+}
+
+function is_admin_teacher()
+{
+  return (in_array(auth()->user()->type,['admin','teacher'])) ? 1 : 0;
 }
 
 function is_teacher()
 {
-  if(auth()->user()->type=='teacher')
-  {
-    return 1;
-  }
-  return 0;
+  return (auth()->user()->type=='teacher')? 1: 0;
 }
 
 function is_student()
 {
-  if(auth()->user()->type =='student')
-  {
-    return 1;
-  }
-  return 0;
+  return (auth()->user()->type =='student')? 1:0;
 }

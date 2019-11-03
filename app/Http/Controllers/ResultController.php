@@ -65,7 +65,6 @@ class ResultController extends Controller
 
         $marks = SubjectMarks::where('student_id',$student_id)->get();
 
-
         return view('result.student_result',compact('student','attendance','marks'));
 
     }

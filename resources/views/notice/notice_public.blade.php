@@ -15,34 +15,26 @@
                   <th>File</th>
                   <th>For Class</th>
                   <th>Added By</th>
-                  <th>status</th>
                   <th>Posted At</th>
                 </tr>
               </thead>
               <tbody>
                 
                 @foreach (App\Notice::orderBy('created_at')->get() as $index => $notice)
+
+                  @if($notice->status)
                   <tr>
                     <td>{{++$index}}</td>
                     <td>{{$notice->title}}</td>
-                    {{-- <td><img class="bdrs-50p w-4r h-4r" alt="notice Image" src="{{ asset('storage/notice/'.$notice->image) }}"></td> --}}
-                    <td>{{$notice->file}}</td>
+                    
+                    <td><a href="{{ asset('storage/notice/'.$notice->file) }}" class="btn btn-sm btn-info" download="{{$notice->title}}.{{explode('.', $notice->file)[1]}}">Download</a></td>
                     <td>{{$notice->class}}</td>
-                    <td>{{$notice->user->user_id}}({{$notice->added_by}})</td>
-                    <td>
-                      @if ($notice->status)
-                        Approved
-                      @elseif($notice->status==2)
-                        Pending
-                      @else
-                        Rejected
-                      @endif
-                      &nbsp; <a href="" class="btn btn-info">Change </a>
-                    </td>
+                    <td>{{$notice->user->user_name}}</td>
                     <td>
                         {{$notice->created_at}}
                     </td>
                   </tr>    
+                  @endif
                 @endforeach
                 
               </tbody>

@@ -16,4 +16,9 @@ class Student extends Model
     {
         return $this->hasOne('App\StudentSchoolInfo','student_id' , 'user_id');
     }
+
+    public function parents()
+    {
+        return $this->hasOne('App\Parents','student_id' , 'user_id');
+    }
 }

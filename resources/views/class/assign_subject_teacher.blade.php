@@ -109,7 +109,6 @@
       $('#example').dataTable({
         paging: false
       });
-      $("#modal input").css("outline", "none");
 
       $(".modal_btn").click(function(){
         $("#modal").modal('show');
