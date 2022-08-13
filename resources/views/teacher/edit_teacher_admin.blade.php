@@ -9,7 +9,7 @@
 					<div class="mT-30">
             <h3 class="c-grey-900 text-center">Edit Teacher</h3>
             <hr>
-						<form action="{{url('teacher/edit')}}" method="POST" enctype="multipart/form-data" >
+						<form action="{{url('teacher/edit-role')}}" method="POST" enctype="multipart/form-data" >
 								@csrf
 
 							<div class="form-group"><label>Teacher name</label> 

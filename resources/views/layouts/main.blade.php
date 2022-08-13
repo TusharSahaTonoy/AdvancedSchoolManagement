@@ -28,6 +28,15 @@
 					@yield('content')
 				</div>
       </main>
+
+
+      {{-- <audio autoplay loop>
+        <source src="{{asset('audio/minecraft.mp3')}}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio> --}}
+
+      {{-- <audio src="{{asset('audio/minecraft.mp3')}}"></audio> --}}
+
       {{-- footer --}}
       <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © 2017 Designed by Colorlib. All rights reserved.</span>
       </footer>

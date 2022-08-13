@@ -2,11 +2,22 @@
 
 @section('content')
 
+  {{-- <div class="row">
+    <form action="{{url('student/delete')}}" method="POST">
+      @csrf
+      <label for="">Id: </label>
+      <input type="text" name="student_id">
+      <input type="submit">
+    </form>
+  </div> --}}
+  <br>
 	<div class="row justify-content-center">
 			<div class="col-12" style="background-color: wheat; border-radius: 30px;">
 				<div class="bgc-white bd bdrs-3 p-20 mB-20">
 					<div class="mT-30">
-            <h3 class="c-grey-900">All Student List <a href="{{url('student/add')}}" class="btn btn-info">Add Student</a></h3>
+            <h3 class="c-grey-900">All Student List @if (Auth::user()->role =='admin') <a href="{{url('student/add')}}" class="btn btn-info">Add Student</a> @endif</h3>
+            <hr>
+            <br>
             <div>
               <label for="">Select Class:</label> 
               <select id="class_name" onchange="table_filter(this)">
@@ -31,7 +42,10 @@
                   <th>Section</th>
                   <th>Roll</th>
                   <th>Guide Teacher</th>
-                  <th>Action</th>
+                  @if (Auth::user()->role =='admin'|| Auth::user()->role =='principal')
+                    <th>Action</th>
+                  @endif
+                  
                 </tr>
               </thead>
               <tbody>
@@ -47,10 +61,13 @@
                       {{$student->teacher->name}} ({{$student->guide_teacher}})      
                       @endisset
                     </td>
-                    <td>
-                      <a href="{{url('student/view/'.$student->student_id)}}" class="btn btn-sm btn-primary">All Details</a>
-                      <a href="" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
+                    @if (Auth::user()->role =='admin'|| Auth::user()->role =='principal')
+                      <td>
+                        <a href="{{url('student/view/'.$student->student_id)}}" class="btn btn-sm btn-primary">All Details</a>
+                        <button class="btn btn-sm btn-danger btn_delete" name="{{$student->student_id}}">Delete</button>
+                      </td>
+                    @endif
+                    
                   </tr>
                 @endforeach
               </tbody>
@@ -67,8 +84,8 @@
 
       var _class = e.options[e.selectedIndex].value;
 
-      var filter, table, tr, td, i, txtValue;
-      // filter = input.value.toUpperCase();
+      var table, tr, td, i, txtValue;
+
       table = document.getElementById("dataTable");
       tr = table.getElementsByTagName("tr");
       for (i = 0; i < tr.length; i++) {
@@ -83,6 +100,58 @@
         }       
       }
     }
+
+    let delete_btns = document.querySelectorAll('.btn_delete');
+
+    for (var i = 0; i < delete_btns.length; i++) {
+      delete_btns[i].addEventListener('click', function(event) {
+          
+        if (confirm("Sure! You want to delete.")) {
+          // let student_id = this.getAttribute('name');
+          let data = { student_id : this.getAttribute('name') };
+
+          var row = this.closest('tr');
+          
+          fetch( "{{url('student/delete')}}" , {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8',
+              'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(function(res){
+            // console.log(res.status);
+            return res.json();
+          })
+          .then(function(data){
+            if(data=="1")
+            {
+              alert('Delete Success');
+              row.remove(); 
+            }
+            else if(data=="0")
+            {
+              alert('Can not be deleted. Have marks records. Contact Admin');
+            }
+            // console.log( data );
+          });
+        }
+        
+
+      });
+    }
+
+    // let response = await fetch(url);
+
+    // if (response.ok) { // if HTTP-status is 200-299
+    //   // get the response body (the method explained below)
+    //   let json = await response.json();
+    // } else {
+    //   alert("HTTP-Error: " + response.status);
+    // }
+    
+
   </script>
 
 @endsection

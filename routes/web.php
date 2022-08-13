@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -43,6 +45,9 @@ Route::get('admin/all','AdminController@admin_list');
 // all user
 Route::get('user/all','AdminController@user_list');
 
+//reset password
+Route::get('admin/user-passowrd-reset/{user_id}','AdminController@user_pass_reset');
+
 
 
 /* ------------------------ Teacher ------------------ */
@@ -56,6 +61,10 @@ Route::post('teacher/add', "TeacherController@add_teacher");
 //edit
 Route::get('teacher/edit/{id}','TeacherController@edit_teacher_form');
 Route::post('teacher/edit','TeacherController@edit_teacher');
+
+// edit role
+Route::get('teacher/edit-role/{id}','TeacherController@edit_teacher_form');
+Route::post('teacher/edit-role','TeacherController@edit_teacher_role');
 
 //delete
 Route::post('teacher/delete','TeacherController@delete_teacher');
@@ -76,7 +85,7 @@ Route::get('student/edit','StudentController@edit_student_form');
 Route::post('student/edit','StudentController@edit_student');
 
 //delete
-// Route::get('student/details/{id}','StudentController@detail_student');
+Route::post('student/delete','StudentController@delete_student');
 
 
 
@@ -131,7 +140,12 @@ Route::get('result','ResultController@result');
 //class
 Route::get('result/class/{class}','ResultController@class_result');
 
+//student
 Route::get('result/student','ResultController@student_result');
+
+//pdf print
+Route::get('result/pdf/{id}','ResultController@pdf_result');
+
 
 
 

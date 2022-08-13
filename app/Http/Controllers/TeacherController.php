@@ -11,6 +11,7 @@ use App\Teacher;
 use App\Attendance;
 use App\SubjectMarks;
 use App\StudentSchoolInfo;
+use App\ClassTeacher;
 
 class TeacherController extends Controller
 {
@@ -28,10 +29,6 @@ class TeacherController extends Controller
 
     public function teacher_list()
     {
-        if(!is_admin_principal())
-        {
-            return redirect('/')->with('error','You do not have that privilege');
-        }
         return view('teacher.list_teacher');
     }
     
@@ -96,23 +93,21 @@ class TeacherController extends Controller
     //edit teacher 
     public function edit_teacher_form($id)
     {   
-        if(!is_admin_principal() && auth()->user()->user_id != $id)
-        {
-            return redirect('/')->with('error','You do not have that privilege');
-        }
-
-        $teacher = Teacher::where('user_id',$id)->first();
-
-        if(!isset($teacher))
-        {
-            return redirect('/')->with('error','Teacher not found');
-        }
-        
         Session::put('user_id', $id);
+        $teacher = Teacher::where('user_id',$id)->first();
 
         if(is_admin_principal())
         {
+            if(!isset($teacher))
+            {
+                return redirect('/')->with('error','Teacher not found');
+            }
+
             return view('teacher.edit_teacher_admin',compact('teacher'));
+        }
+        else if(auth()->user()->user_id != $id )
+        {
+            return redirect('/')->with('error','You do not have that privilege');
         }
 
         return view('teacher.edit_teacher',compact('teacher'));
@@ -120,30 +115,57 @@ class TeacherController extends Controller
 
     public function edit_teacher(Request $r)
     {
-        return $r;
-        if(is_admin_principal)
+        
+        if(auth()->user()->user_id != Session::get('user_id') )
         {
-            return auth()->user()->role;
+            return redirect('/')->with('error','You do not have that privilege');
+        }
+        
+        request()->validate([
+            'name' => 'required|string|max:190',
+            'phone'=> 'required|regex:/(01)[0-9]{9}/',
+        ]);
+        
+        $user = User::where('user_id',Session::get('user_id'))->first();
+        $user->name = $r->name;
+        $user->phone = $r->phone;
+        $user->save();
+        return redirect('/')->with('success','Details Updated');
+    }
+
+    public function edit_teacher_role(Request $r)
+    {
+        // return $r;
+        if(is_admin())
+        {
+            if($r->role == 'principal')
+            {
+                $principal = User::where('role','principal')->first();
+                
+                if(isset($principal))
+                    return redirect()->back()->with('error','There is already a principal. Change his role first');
+            }
+            
+            $user = User::where('user_id',Session::get('user_id'))->first();
+            // return Session::get('user_id');
+            $user->role = $r->role;
+            $user->save();
+            
+            return redirect('teacher/list')->with('success','Role changes successfully');
+        }
+        else if(is_principal())
+        {
+            if($r->role == 'principal')
+            {
+                return redirect()->back()->with('error','Only admin can change to principal role');
+            }
             $user = User::where('user_id',Session::get('user_id'))->first();
             $user->role = $r->role;
             $user->save();
-        }
-        if(is_teacher)
-        {
-            return auth()->user()->type;
-            request()->validate([
-                'name' => 'required|string|max:190',
-                'join_date' => 'required|date',
-                'phone'=> 'required|regex:/(01)[0-9]{9}/',
-            ]);
-            
-            $user = User::where('user_id',Session::get('user_id'))->first();
-            $user->name = $r->name;
-            $user->phone = $r->phone;
 
+            return redirect('/teachar/list')->with('success','Role changes successfully');
         }
-
-        return $teacher;
+        return redirect('/')->with('error','You do not have that privilege');
     }
     
 
@@ -174,6 +196,8 @@ class TeacherController extends Controller
                 $student->save();
             }
         }
+
+        // ClassTeacher::where('teacher_id',$r->teacher_id)->delete();  
 
         $teacher = Teacher::where('user_id',$r->teacher_id)->first();
         // $teacher->delete();  

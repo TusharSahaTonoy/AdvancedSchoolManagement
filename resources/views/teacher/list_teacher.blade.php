@@ -18,8 +18,10 @@
                   <th>Phone</th>
                   <th>Join Date</th>
                   <th>Role</th>
-                  <th>Added By</th>
-                  <th>Action</th>
+                  @if (Auth::user()->role == 'admin' || Auth::user()->role == 'principal')
+                    <th>Added By</th>
+                    <th>Action</th>
+                  @endif  
                 </tr>
               </thead>
               <tbody>
@@ -34,9 +36,12 @@
                     <td>{{$teacher->phone}}</td>
                     <td>{{$teacher->join_date}}</td>
                     <td class="text-capitalize">{{$teacher->user->role}}</td>
-                    <td class="text-capitalize">{{$teacher->user->added_by}}</td>
-                    <td><a href="{{url('teacher/edit/'.$teacher->user_id)}}" class="btn_edit btn btn-warning">Edit</a>
-                      <button name="{{$teacher->user_id}}" class="btn btn-danger">Delete</button></td>
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'principal')
+                      <td class="text-capitalize">{{$teacher->user->added_by}}</td>
+                      <td><a href="{{url('teacher/edit-role/'.$teacher->user_id)}}" class="btn_edit btn btn-sm btn-warning">Edit Role</a>
+                      <button name="{{$teacher->user_id}}" class="btn btn-sm btn-danger">Delete</button></td>    
+                    @endif
+                    
                   </tr>    
                 @endforeach
                 

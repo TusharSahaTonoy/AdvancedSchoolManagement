@@ -35,19 +35,31 @@ class AttendanceController extends Controller
         return view('attendance.all_classes',compact('classes'));
     }
 
-    public function take_attendance_form($argu)
+    public function take_attendance_form($arg)
     {
-        // return $argu;
+        $regx = "/\b[1-8],[a-zA-z]\b/";
 
-        list($class,$section) = explode(",", $argu);
+        if(!preg_match($regx, $arg))
+        {
+            abort(404);
+        }
+        
+        list($class,$section) = explode(",", $arg);
 
         $students = StudentSchoolInfo::where([
             'class' => $class,
             'section' =>$section
         ])->get();
+        
+        // echo 'A: '.(empty((array)$students));
+        // return $students->count();
 
-        // return $students;
-        return view('attendance.student_list_attendence',compact('students','class','section'));
+        if($students->count())
+        {
+            return view('attendance.student_list_attendence',compact('students','class','section'));
+        }
+
+        return redirect('attendance')->with('error','No student in class: '.$class.', Section: '.$section.'. Please add student first.');
     }
 
     public function store_attendence(Request $r)
@@ -82,4 +94,8 @@ class AttendanceController extends Controller
         return redirect('/attendance')->with('success','Attendance taken');
     }
 
+    public function view_attendence()
+    {
+        
+    }
 }

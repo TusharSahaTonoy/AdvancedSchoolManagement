@@ -94,6 +94,16 @@ class ClassController extends Controller
         foreach($r->teacher_ids as $index => $teacher_id)
         {
             // return $r->class. ' ' . $r->sections[$index] . ' ' . $teacher_id;
+            if($teacher_id==null)
+            {
+                ClassTeacher::where([
+                    'class' => $r->class,
+                    'section' => $r->sections[$index],    
+                ])->delete();
+
+                continue;
+            }
+
             ClassTeacher::updateOrCreate([
                 'class' => $r->class,
                 'section' => $r->sections[$index],

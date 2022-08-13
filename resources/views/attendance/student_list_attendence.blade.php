@@ -26,24 +26,25 @@
                     <th>Image</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  
-                    @foreach ($students as $student)
-                    <tr>
-                      <td>{{$student->student->name}} ({{$student->roll}})</td>
-                      <td><img class="bdrs-50p w-4r h-4r" alt="teacher Image" src="{{ asset('storage/student/'.$student->student->image) }}"></td>
-                      <td>
-                        <label><input type="radio" id="{{$student->student_id}}" name="stu_att[{{$student->student_id}}]" value="1">Present</label>
-                      </td>
-                      <td>
-                        <label><input type="radio" id="{{$student->student_id}}" name="stu_att[{{$student->student_id}}]" value="0" checked>Absent</label>
-                      </td>  
-                    </tr>    
-                    @endforeach
-                  </form>
-                  
+                  @foreach ($students as $student)
+                  <tr>
+                    <td>{{$student->student->name}} ({{$student->roll}})</td>
+                    <td><img class="bdrs-50p w-4r h-4r" alt="teacher Image" src="{{ asset('storage/student/'.$student->student->image) }}"></td>
+                    <td>
+                      <label><input type="radio" id="{{$student->student_id}}" name="stu_att[{{$student->student_id}}]" value="1">Present</label>
+                    </td>
+                    <td>
+                      <label><input type="radio" id="{{$student->student_id}}" name="stu_att[{{$student->student_id}}]" value="0" checked>Absent</label>
+                    </td>  
+                    <td>
+                      <label><input type="radio" id="{{$student->student_id}}" name="stu_att[{{$student->student_id}}]" value="2" >Sick</label>
+                    </td>  
+                  </tr>    
+                  @endforeach
                 </tbody>
               </table>
             </div>

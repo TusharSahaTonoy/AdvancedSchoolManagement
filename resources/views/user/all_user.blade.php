@@ -16,18 +16,21 @@
                     <th>Type</th>
                     <th>Role</th>
                     <th>Added By</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-                  @foreach (App\User::all() as $index => $admin)
+                  @foreach (App\User::all() as $index => $user)
                     <tr>
                       <td>{{++$index}}</td>
-                      <td>{{$admin->user_id}}</td>
-                      <td>{{$admin->user_name}}</td>
-                      <td>{{$admin->type}}</td>
-                      <td>{{$admin->role}}</td>
-                      <td>{{$admin->added_by}}</td>
+                      <td>{{$user->user_id}}</td>
+                      <td>{{$user->user_name}}</td>
+                      <td>{{$user->type}}</td>
+                      <td>{{$user->role}}</td>
+                      <td>{{$user->added_by}}</td>
+                      <td><button class="btn btn-danger btn-sm btn_reset" name="{{$user->user_id}}"><i class="fas fa-key"></i>
+                        <span>Reset Password</span></button></td>
                     </tr>    
                   @endforeach
                   
@@ -38,4 +41,43 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+
+    let reset_btns = document.querySelectorAll('.btn_reset');
+
+    for (var i = 0; i < reset_btns.length; i++) 
+    {
+      reset_btns[i].addEventListener('click',function() {
+          
+        if (confirm("Sure! You want to reset password.")) {
+          
+          let student_id = this.getAttribute('name');
+          alert('Password resetting . . .');
+          fetch("{{url('admin/user-passowrd-reset')}}/"+ student_id)
+          .then(function(res){
+            return res.text();
+          })
+          .then(function(data){
+            if(data)
+            {
+              alert('Password reseted');
+            }
+            else
+            {
+              alert('Server error. Contact Admin');
+            }
+            // console.log( data );
+          });
+
+          
+          
+        }
+        
+
+      });
+    }
+    
+  </script>
 @endsection

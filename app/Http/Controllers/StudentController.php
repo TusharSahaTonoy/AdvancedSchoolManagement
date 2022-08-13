@@ -11,6 +11,9 @@ use App\StudentSchoolInfo;
 use App\ClassSection;
 use App\Teacher;
 
+use App\SubjectMarks;
+use App\Attendance;
+
 class StudentController extends Controller
 {
     public function __construct()
@@ -226,5 +229,34 @@ class StudentController extends Controller
 
 
         return redirect()->back()->with('success','Infomation Upadated');
+    }
+
+    public function delete_student(Request $r)
+    {
+        // return $r->student_id;
+        $status = 0;
+
+        $marks = SubjectMarks::where('student_id',$r->student_id)->first();
+        if(isset($marks))
+        {
+            return response()->json("0");
+        }
+
+        // $attendance ; StudentSchoolInfo; parents; parents user; student; student_user;
+
+        // $attendance = Attendance::where('student_id',$r->student_id)->delete();
+
+        // // parents , parents_user deleting
+        // Parents::where('student_id',$r->student_id)->delete();
+        // User::where('user_id','p-'.$r->student_id)->delete();
+
+        // // deleting student school info
+        // StudentSchoolInfo::where('student_id',$r->student_id)->delete();
+
+        // // deleting student and user_student
+        // Student::where('user_id',$r->student_id)->delete();
+        // User::where('user_id',$r->student_id)->delete();
+
+        return response()->json("1");
     }
 }

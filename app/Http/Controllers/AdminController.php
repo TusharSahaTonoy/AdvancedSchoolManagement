@@ -58,4 +58,12 @@ class AdminController extends Controller
 
         return redirect('/');
     }
+
+    public function user_pass_reset($user_id)
+    {
+        $user = User::where('user_id',$user_id)->first();
+        $user->password = \Illuminate\Support\Facades\Hash::make('123456');
+        $user->save();
+        return 1;
+    }
 }

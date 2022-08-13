@@ -46,7 +46,7 @@
                   <th>Class</th>
                   <th>Total Subjects</th>
                   <th>All Subjects</th>
-                  <th>Action</th>
+                  {{-- <th>Action</th> --}}
                 </tr>
               </thead>
               <tbody>
@@ -59,7 +59,7 @@
                           {{$subject->subject_name}}<br>
                       @endforeach
                     </td>
-                    <td>Edit</td>
+                    
                   </tr>
 
                 @endforeach

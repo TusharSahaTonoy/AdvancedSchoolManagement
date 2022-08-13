@@ -29,7 +29,7 @@
                     <td>{{$notice->class}}</td>
                     <td>{{$notice->user->user_name}}({{$notice->added_by}})</td>
                     <td>
-                      @if ($notice->status)
+                      @if ($notice->status==1)
                         Approved
                       @elseif($notice->status==2)
                         Pending

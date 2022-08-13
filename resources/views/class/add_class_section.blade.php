@@ -53,7 +53,7 @@
                             ])->first();
                           @endphp
                           @isset($teacher)
-                            ({{$teacher->teacher->name}}),
+                            ({{$teacher->teacher->user_id}}),
                           @else
                             <span class="text-white bg-danger">(not set)</span>,
                           @endisset

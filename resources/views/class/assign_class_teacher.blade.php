@@ -42,7 +42,7 @@
 							@endforeach
 							
               <div class="row justify-content-center">
-								<button type="submit" class="form-group btn btn-primary col-2">Add Section</button>
+								<button type="submit" class="form-group btn btn-primary col-2">Save</button>
 							</div>
             </form>
 					</div>

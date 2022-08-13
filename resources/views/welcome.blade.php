@@ -13,7 +13,7 @@
 </div>
 <br>
 <br>
-<div class="row">
+{{-- <div class="row">
 	<div class="col-md-12 c-grey-900">
 		<h1>Getting Stated steps</h1>
 		<hr>
@@ -23,6 +23,51 @@
 		<h4>Add subject</h4>
 		<p>Click the < from the </p>
 	</div>
+</div> --}}
+{{-- 
+<div class="row">
+	<div class="col-10">
+		<canvas id="my_chart"></canvas>
+	</div>
 </div>
+
+
+<script>
+window.addEventListener('load',function load(){
+	let myChart = document.getElementById('my_chart').getContext('2d');
+
+	let mass_pop_chart = new Chart(myChart, {
+		type : 'bar',
+		data : {
+			labels: ['Barisal','Chittagong','Dhaka','Khulna','Mymensingh','Rajshahi'],
+			datasets:[{
+				label: 'Aria',
+				data : [
+					13225,
+					33908,
+					20593,
+					22284,
+					10584,
+					18153
+				],
+				backgroundColor : 'skyblue'
+			},
+			{
+				label: 'Population',
+				data : [
+					83252,
+					33102,
+					12593,
+					52284,
+					30584,
+					12153
+				],
+				backgroundColor : 'blue'
+			}]
+		},
+		options : {}
+	});
+});
+</script> --}}
 
 @endsection

@@ -8,10 +8,19 @@ function admin_check()
   }
 }
 
-// $is_admin_principal_var = (in_array(auth()->user()->role,['admin','principal'])) ? 1 : 0; 
+function is_admin()
+{
+  return (auth()->user()->type=='admin')? 1: 0;
+}
+
 function is_admin_principal()
 {
   return (in_array(auth()->user()->role,['admin','principal'])) ? 1 : 0;
+}
+
+function is_principal()
+{
+  return (auth()->user()->type=='principal')? 1: 0;
 }
 
 function is_admin_teacher()

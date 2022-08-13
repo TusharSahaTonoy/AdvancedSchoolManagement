@@ -16,11 +16,13 @@
                 @foreach ($subjects as $subject)
                   <th>{{$subject->subject_name}} </th>
                 @endforeach
-                
+                {{-- <th>Action</th> --}}
               </tr>
             </thead>
             <tbody>
-              @foreach ($students as $index => $student)
+              
+              @if(count($students))
+                @foreach ($students as $index => $student)
                 <tr>
                   <td>{{$student->roll}} ({{$student->student_id}})</td>
                   <td>{{$student->student->name}}</td>
@@ -29,11 +31,19 @@
                     @if (isset($all_marks[$index][$key]))
                       <td>{{$all_marks[$index][$key]}}</td>
                     @else
-                    <td></td>         
+                    <td>Not Evaluated Yet</td>         
                     @endif
                   @endforeach
+                  {{-- <td><a href="{{url('result/pdf/'.$student->student_id)}}" class="btn btn-sm btn-danger" target="_blank">PDF</a></td> --}}
                 </tr>
-              @endforeach
+                @endforeach
+
+              @else
+              <tr>
+                <strong>No Data found</strong>
+              </tr>
+                  
+              @endif
             </tbody>
           </table>
         </div >

@@ -9,6 +9,8 @@ use App\ClassSubject;
 use App\StudentSchoolInfo;
 use App\Attendance;
 
+use PDF;
+
 class ResultController extends Controller
 {
     public function __construct()
@@ -71,6 +73,13 @@ class ResultController extends Controller
 
     public function class_result($class)
     {
+        $regx = "/\b[1-8]\b/";
+
+        if(!preg_match($regx, $class))
+        {
+            abort(404);
+        }
+
         $subjects = ClassSubject::where('class',$class)->get();
 
         $students = StudentSchoolInfo::where('class',$class)->get();
@@ -117,8 +126,15 @@ class ResultController extends Controller
             return redirect('/')->with('error','Your are not eligible for this operation');
         }
 
-        return $student_id;
+        // return $student_id;
 
         return view('result.student_result');
+    }
+
+    public function pdf_result($id)
+    {
+        $pdf = PDF::loadView('result.pdf_result');
+        return $pdf->setPaper('a4', 'landscape')->stream('invoice.pdf');
+        return view('result.pdf_result');
     }
 }

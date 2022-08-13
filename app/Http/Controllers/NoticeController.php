@@ -63,7 +63,8 @@ class NoticeController extends Controller
             'status' => 'required|array|max:1'
         ]);
         foreach ($r->status as $id => $status);
-
+        
+        // return $r;
         $notice = Notice::find($id);
 
         if(!isset($notice))
