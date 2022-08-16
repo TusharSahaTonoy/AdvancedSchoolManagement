@@ -41,4 +41,9 @@ class LoginController extends Controller
     {
         return view('user.login');
     }
+
+    public function username()
+    {
+        return 'user_id';
+    }
 }
